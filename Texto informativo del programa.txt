@@ -1,0 +1,5 @@
+Variables:
+	menu: Para realizar el menu de seleccion para el cliente
+	Datos: primera variable para almacenar datos (dispuesta a cambiarse)
+	x1: variable para almacenar la cadena de caracteres trasnformada (para la validación)
+	cod1: para almacenar la variable transformada exitosamente (para la validación)
