@@ -25,7 +25,17 @@ BEGIN
 	writeln ('B-Realizar reservacion');
 	writeln ('C-Cerrar sistema');
 	//Primer vistazo al menu (sujeto a cambios)
-	readln (menu);
+	repeat
+		begin
+			repeat
+				begin
+					readln (menu);
+				end;
+			until (menu= 'A') or (menu='B') or (menu='C');  //primera validacion del programa (solo se pueden ingresar las letras indicadas)
+			val (menu,x1,cod1)
+		end;
+	until cod1>0;
+	
 		case menu of
 			'A':
 				begin
