@@ -55,6 +55,33 @@ BEGIN
 			'A':
 				begin
 					writeln ('Comenzando el proceso de registro...');
+					writeln;
+					Tdatos:= Tdatos+1;
+					writeln ('por favor favor ingrese sus datos: ','Cliente numero [',Tdatos,']');
+					writeln;
+							writeln ('Nombre: ');
+							readln (datos[Tdatos].nombre);
+							writeln;
+							writeln ('Apellido: ');
+							readln (datos[Tdatos].apellido);
+							writeln;
+							writeln ('Cedula de identidad: ');
+							readln (datos[Tdatos].cedula);
+							writeln;
+							writeln ('Email: ');
+							readln (datos[Tdatos].email);
+							writeln;
+							writeln ('Numero de Telefono: ');
+							readln (datos[Tdatos].telefono);
+							writeln; 
+							writeln ('Cantidad de dias de su estadia: ');
+							readln (datos[Tdatos].TDestadia);
+							writeln;
+							writeln ('Las personas registradas hasta el momento son: ');
+							
+							for i := 1 to Tdatos do
+								WriteLn(i,'-', ' ', datos[i].nombre, ' ' ,datos[i].apellido);
+								readln;
 					
 				end;//end del primer caso
 			'B':
