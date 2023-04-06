@@ -101,7 +101,7 @@ BEGIN
 						begin
 							repeat
 								begin
-									readln (reservacion);
+									readln (reservacion); //segunda validacion
 								end;
 							until (reservacion='a') or (reservacion= 'b') or (reservacion= 'c');
 							val (reservacion,x2,cod2)
