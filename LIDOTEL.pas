@@ -16,6 +16,8 @@ var
 			email: string;
 			TDestadia: string;
 		end;
+var
+archivo1: text;
 	
 	
 	
@@ -77,15 +79,20 @@ BEGIN
 							writeln ('Cantidad de dias de su estadia: ');
 							readln (datos[Tdatos].TDestadia);
 							writeln;
-							writeln ('Las personas registradas hasta el momento son: ');
+						
 							
-							for i := 1 to Tdatos do
-								WriteLn(i,'-', ' ', datos[i].nombre, ' ' ,datos[i].apellido);
-								readln;
 					
 				end;//end del primer caso
 			'B':
 				begin
+					assign (archivo1, 'registro_reservacion_individual'); //archivo de reservacion individual
+					rewrite (archivo1);
+					begin
+						for i := 1 to Tdatos do
+							WriteLn(i,'-', ' ', datos[i].nombre, ' ' ,datos[i].apellido); //posible manera para mostrar las personas del registro
+					end;
+					close (archivo1);
+					
 					writeln ('Por favor, seleccione el tipo de reservacion:');
 					writeln ('a-INDIVIDUAL');
 					writeln ('b-ACOMPAÑADO');
