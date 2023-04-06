@@ -41,6 +41,7 @@ BEGIN
 	writeln ('A-Registrar Nuevo cliente');
 	writeln ('B-Realizar reservacion (Nuevo cliente)');
 	writeln ('C-Cerrar sistema');
+	writeln;
 	//Primer vistazo al menu (sujeto a cambios)
 	repeat
 		begin
@@ -97,6 +98,7 @@ BEGIN
 					writeln ('a-INDIVIDUAL');
 					writeln ('b-ACOMPAÑADO');
 					writeln ('c-GRUPO/FAMILIA');
+					writeln;
 					repeat
 						begin
 							repeat
@@ -111,11 +113,14 @@ BEGIN
 						'a': 
 							begin
 								writeln ('usted ha seleccionado la reservacion de tipo individual');
+								writeln;
 								writeln ('Seleccione el tipo de habitacion');
+								writeln;
 								writeln('a-FAMILY ROOM');
 								writeln ('b-SENCILLA');
 								writeln ('c-DOBLE');
 								writeln ('d-SUITE');
+								writeln;
 								repeat
 									begin
 										repeat
@@ -126,14 +131,189 @@ BEGIN
 										val (habitaciones, x3, cod3);
 									end;
 								until cod3>0;
-							end;
+								case habitaciones of
+								'a':
+									begin
+										writeln ('Usted ha seleccionado la FAMILY ROOM - 200$ la noche.');
+										writeln;
+										writeln ('Calida y confortable habitacion decorada con un estilo vanguardista, 100% libre de humo,cama Lidotel Royal King, con reloj despertador TV 32” HD Plasma con cable, banyo con  ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio, una habitacion separada con 2 camas full, banyo con ducha.');							
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+									end;
+								
+								'b':
+									begin
+										writeln ('Usted ha seleccionado la habitacion SENCILLA - 60$ la noche.');
+										writeln;
+										writeln (' Amplia y confortable habitación decorada con un estilo vanguardista, cama Lidotel Royal King con sábanas de algodon egipcio, soporte para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
+									end;
+								
+								'c':
+									begin
+										writeln ('Usted ha seleccionado la habitacion DOBLE - 120$ la noche.');
+										writeln;
+										writeln ('Amplia y confortable habitación decorada con un estilo vanguardista, Dos Camas Lidotel Full con sabanas de algodon egipcio, soporte para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad secador de cabello.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
+									end;
+								
+								'd':
+									begin
+										writeln ('Usted ha seleccionado la SUITE - 300$ la noche.');
+										writeln;
+										writeln('Cálida y confortable habitación decorada con un estilo vanguardista, 100% libre de humo, Cama Lidotel Royal King, con reloj despertador, TV 32” HD Plasma con cable, 2 banyos con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio y area separada con 2 sofa-cama individuales.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+									end;
+								
+								end; // end del case de las habitaciones
+							
+							end; // end de la primera opcion del case de los tipos de reservaciones
 						'b':
 							begin
 								writeln ('usted ha seleccionado la reservacion de tipo acompañado');
+								writeln;
+								writeln ('Seleccione el tipo de habitacion');
+								writeln;
+								writeln('a-FAMILY ROOM');
+								writeln ('b-SENCILLA');
+								writeln ('c-DOBLE');
+								writeln ('d-SUITE');
+								writeln;
+								repeat
+									begin
+										repeat
+											begin
+												readln (habitaciones);  //tercer validacion del programa
+											end;
+										until (habitaciones = 'a') or (habitaciones = 'b') or (habitaciones = 'c') or (habitaciones = 'd'); 
+										val (habitaciones, x3, cod3);
+									end;
+								until cod3>0;
+								case habitaciones of
+								'a':
+									begin
+										writeln ('Usted ha seleccionado la FAMILY ROOM - 200$ la noche.');
+										writeln;
+										writeln ('Calida y confortable habitacion decorada con un estilo vanguardista, 100% libre de humo,cama Lidotel Royal King, con reloj despertador TV 32” HD Plasma con cable, banyo con  ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio, una habitacion separada con 2 camas full, banyo con ducha.');							
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+									end;
+								
+								'b':
+									begin
+										writeln ('Usted ha seleccionado la habitacion SENCILLA - 60$ la noche.');
+										writeln;
+										writeln (' Amplia y confortable habitación decorada con un estilo vanguardista, cama Lidotel Royal King con sábanas de algodon egipcio, soporte para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
+									end;
+								
+								'c':
+									begin
+										writeln ('Usted ha seleccionado la habitacion DOBLE - 120$ la noche.');
+										writeln;
+										writeln ('Amplia y confortable habitación decorada con un estilo vanguardista, Dos Camas Lidotel Full con sabanas de algodon egipcio, soporte para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad secador de cabello.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
+									end;
+								
+								'd':
+									begin
+										writeln ('Usted ha seleccionado la SUITE - 300$ la noche.');
+										writeln;
+										writeln('Cálida y confortable habitación decorada con un estilo vanguardista, 100% libre de humo, Cama Lidotel Royal King, con reloj despertador, TV 32” HD Plasma con cable, 2 banyos con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio y area separada con 2 sofa-cama individuales.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+									end;
+								
+								end; // end del case de las habitaciones
 							end;
 						'c':
 							begin
 								writeln ('usted ha seleccionado la reservacion de tipo grupo/familia');
+								writeln;
+								writeln ('Seleccione el tipo de habitacion');
+								writeln;
+								writeln('a-FAMILY ROOM');
+								writeln ('b-SENCILLA');
+								writeln ('c-DOBLE');
+								writeln ('d-SUITE');
+								writeln;
+								repeat
+									begin
+										repeat
+											begin
+												readln (habitaciones);  //tercer validacion del programa
+											end;
+										until (habitaciones = 'a') or (habitaciones = 'b') or (habitaciones = 'c') or (habitaciones = 'd'); 
+										val (habitaciones, x3, cod3);
+									end;
+								until cod3>0;
+								case habitaciones of
+								'a':
+									begin
+										writeln ('Usted ha seleccionado la FAMILY ROOM - 200$ la noche.');
+										writeln;
+										writeln ('Calida y confortable habitacion decorada con un estilo vanguardista, 100% libre de humo,cama Lidotel Royal King, con reloj despertador TV 32” HD Plasma con cable, banyo con  ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio, una habitacion separada con 2 camas full, banyo con ducha.');							
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+									end;
+								
+								'b':
+									begin
+										writeln ('Usted ha seleccionado la habitacion SENCILLA - 60$ la noche.');
+										writeln;
+										writeln (' Amplia y confortable habitación decorada con un estilo vanguardista, cama Lidotel Royal King con sábanas de algodon egipcio, soporte para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
+									end;
+								
+								'c':
+									begin
+										writeln ('Usted ha seleccionado la habitacion DOBLE - 120$ la noche.');
+										writeln;
+										writeln ('Amplia y confortable habitación decorada con un estilo vanguardista, Dos Camas Lidotel Full con sabanas de algodon egipcio, soporte para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad secador de cabello.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
+									end;
+								
+								'd':
+									begin
+										writeln ('Usted ha seleccionado la SUITE - 300$ la noche.');
+										writeln;
+										writeln('Cálida y confortable habitación decorada con un estilo vanguardista, 100% libre de humo, Cama Lidotel Royal King, con reloj despertador, TV 32” HD Plasma con cable, 2 banyos con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio y area separada con 2 sofa-cama individuales.');
+										writeln;
+										writeln ('Incluye: ');
+										writeln;
+										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+									end;
+								
+								end; // end del case de las habitaciones
 							end;
 							
 					end;// end del case de reservacion
