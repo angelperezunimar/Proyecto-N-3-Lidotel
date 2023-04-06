@@ -4,8 +4,8 @@
 program Sistema_de_Reservacionlidotel;
 uses crt;
 {Se empiezan inicializando variables necesarias para el programa}
-var  menu, reservacion: string;
-var x1, cod1,x2,cod2, Tdatos, i: integer;
+var  menu, reservacion, habitaciones: string;
+var x1, cod1, x2, cod2, x3, cod3, Tdatos, i: integer;
 var
 	datos: array [1..2000] of
 		record
@@ -111,6 +111,21 @@ BEGIN
 						'a': 
 							begin
 								writeln ('usted ha seleccionado la reservacion de tipo individual');
+								writeln ('Seleccione el tipo de habitacion');
+								writeln('a-FAMILY ROOM');
+								writeln ('b-SENCILLA');
+								writeln ('c-DOBLE');
+								writeln ('d-SUITE');
+								repeat
+									begin
+										repeat
+											begin
+												readln (habitaciones);  //tercer validacion del programa
+											end;
+										until (habitaciones = 'a') or (habitaciones = 'b') or (habitaciones = 'c') or (habitaciones = 'd'); 
+										val (habitaciones, x3, cod3);
+									end;
+								until cod3>0;
 							end;
 						'b':
 							begin
