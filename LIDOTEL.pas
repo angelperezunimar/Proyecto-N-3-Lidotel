@@ -80,7 +80,7 @@ BEGIN
 							readln (datos[Tdatos].TDestadia);
 							writeln;
 						
-							
+							//Como se deben realizar tres registros y tres archivos (uno por cada tipo de reservacion) esta idea está sujeta a cambios puesto que se esta planteando hacer el proceso anterior mostrado dos veces mas
 					
 				end;//end del primer caso
 			'B':
