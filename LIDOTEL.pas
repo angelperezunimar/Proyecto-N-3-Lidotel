@@ -4,10 +4,25 @@
 program Sistema_de_Reservacionlidotel;
 uses crt;
 {Se empiezan inicializando variables necesarias para el programa}
-var  menu, datos: string;
-var x1, cod1: integer;
+var  menu, reservacion: string;
+var x1, cod1,x2,cod2, Tdatos, i: integer;
+var
+	datos: array [1..2000] of
+		record
+			nombre: string;
+			apellido: string;
+			cedula: longint;
+			telefono: longint;
+			email: string;
+			TDestadia: string;
+		end;
+	
+	
+	
+		
 
 BEGIN
+	Tdatos:=0;
 	textcolor (lightblue);
 	writeln ('=========================================================================================');
 	writeln;
@@ -21,8 +36,8 @@ BEGIN
 	writeln;
 	writeln ('¿QUE DESEA HACER?');
 	writeln;
-	writeln ('A-Registrar nuevo cliente');
-	writeln ('B-Realizar reservacion');
+	writeln ('A-Registrar Nuevo cliente');
+	writeln ('B-Realizar reservacion (Nuevo cliente)');
 	writeln ('C-Cerrar sistema');
 	//Primer vistazo al menu (sujeto a cambios)
 	repeat
@@ -39,11 +54,40 @@ BEGIN
 		case menu of
 			'A':
 				begin
-					writeln ('Ingrese sus datos');
+					writeln ('Comenzando el proceso de registro...');
+					
 				end;//end del primer caso
 			'B':
 				begin
-					writeln ('A continuacion se mostraran las Habitaciones disponibles');
+					writeln ('Por favor, seleccione el tipo de reservacion:');
+					writeln ('a-INDIVIDUAL');
+					writeln ('b-ACOMPAÑADO');
+					writeln ('c-GRUPO/FAMILIA');
+					repeat
+						begin
+							repeat
+								begin
+									readln (reservacion);
+								end;
+							until (reservacion='a') or (reservacion= 'b') or (reservacion= 'c');
+							val (reservacion,x2,cod2)
+						end;
+					until cod2>0;
+					case reservacion of
+						'a': 
+							begin
+								writeln ('usted ha seleccionado la reservacion de tipo individual');
+							end;
+						'b':
+							begin
+								writeln ('usted ha seleccionado la reservacion de tipo acompañado');
+							end;
+						'c':
+							begin
+								writeln ('usted ha seleccionado la reservacion de tipo grupo/familia');
+							end;
+							
+					end;// end del case de reservacion
 				end; // end del segundo caso
 			'C':
 				begin
