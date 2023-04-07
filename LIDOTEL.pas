@@ -19,7 +19,7 @@ type
 
 {Se empiezan inicializando variables necesarias para el programa}
 var  menu, reservacion, habitaciones: string;
-     x1, cod1, x2, cod2, x3, cod3, Tdatos, i,TRegistro: integer;
+     x1, cod1, x2, cod2, x3, cod3, Tdatos, i,TRegistro,PTotal,DEstadia: integer;
      ECliente:string[10];
      DCliente, DRegistrar: datos;
 	 archivo1: text;
@@ -91,6 +91,8 @@ begin
 							readln (DCliente.TDestadia);
 							DRegistrar.TDestadia := DCliente.TDestadia;
 							writeln;
+							
+							DEstadia:= DCliente.TDestadia;
 							ECliente:= DCliente.cedula;
 					        ECedula:= false;
 					        
@@ -214,6 +216,13 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+										PTotal:= 200 * (DEstadia - 1);
+										clrscr;
+										writeln('DATOS DE LA RESERVACION');
+										writeln('');
+										writeln('');
+										writeln('');
+										
 									end;
 								
 								'b':
@@ -225,6 +234,7 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
+										Writeln('');
 									end;
 								
 								'c':
