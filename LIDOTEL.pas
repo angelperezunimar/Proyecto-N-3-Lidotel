@@ -18,8 +18,8 @@ type
 		end;
 
 {Se empiezan inicializando variables necesarias para el programa}
-var  menu, reservacion, habitaciones,TRegistro: string;
-     x1, cod1, x2, cod2, x3, cod3, Tdatos, i: integer;
+var  menu, reservacion, habitaciones: string;
+     x1, cod1, x2, cod2, x3, cod3, Tdatos, i,TRegistro: integer;
      ECliente:string[10];
      DCliente, DRegistrar: datos;
 	 archivo1: text;
@@ -29,18 +29,37 @@ var  menu, reservacion, habitaciones,TRegistro: string;
 	//Procedimiento para el registro del cliente
 Procedure RCliente;
 begin
-
-
-
-	Assign(archivo, TRegistro);
 	
-		// Crear archivo si no existe
-		if not FileExists(TRegistro) then
+	case TRegistro of
+	1: begin
+	Assign(archivo, 'Individual.dat');
+	
+	// Crear archivo si no existe
+		if not FileExists('Individual.dat') then
 		  begin
 			Rewrite(archivo);
 			Close(archivo);
 		  end;
-		 
+	end;
+	2:begin
+	 Assign(archivo, 'Acompañado.dat');
+	 // Crear archivo si no existe
+		if not FileExists('Acompañado.dat') then
+		  begin
+			Rewrite(archivo);
+			Close(archivo);
+		  end;
+		 end;
+	3:begin
+	Assign(archivo, 'Grupo_Familia.dat');
+	// Crear archivo si no existe
+		if not FileExists('Grupo_Familia.dat') then
+		  begin
+			Rewrite(archivo);
+			Close(archivo);
+		  end;
+		 end;
+		 end;
 	Reset(archivo);
 	
 	
@@ -160,17 +179,14 @@ BEGIN
 							val (reservacion,x2,cod2)
 						end;
 					until cod2>0;
-					RCliente;
 					
 					case reservacion of
 						'a': 
 							begin
-								TRegistro := 'Individual.dat';
+								TRegistro:= 1;
 								writeln ('usted ha seleccionado la reservacion de tipo individual');
 								writeln;
 								RCliente;
-								readln;
-								clrscr;
 								writeln ('Seleccione el tipo de habitacion');
 								writeln;
 								writeln('a-FAMILY ROOM');
@@ -178,7 +194,6 @@ BEGIN
 								writeln ('c-DOBLE');
 								writeln ('d-SUITE');
 								writeln;
-								readln (habitaciones);  //tercer validacion del programa
 								repeat
 									begin
 										repeat
@@ -239,7 +254,7 @@ BEGIN
 							end; // end de la primera opcion del case de los tipos de reservaciones
 						'b':
 							begin
-								TRegistro:= 'Acompañado.dat';
+								TRegistro:= 2;
 								writeln ('usted ha seleccionado la reservacion de tipo acompañado');
 								writeln;
 								writeln ('Seleccione el tipo de habitacion');
@@ -308,7 +323,7 @@ BEGIN
 							end;
 						'c':
 							begin
-							TRegistro:= 'Grupo_Familia.dat';
+							TRegistro:= 3;
 								writeln ('usted ha seleccionado la reservacion de tipo grupo/familia');
 								writeln;
 								writeln ('Seleccione el tipo de habitacion');
