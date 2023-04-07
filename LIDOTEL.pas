@@ -141,23 +141,8 @@ BEGIN
 		case menu of
 			'A':
 				begin
-				    TRegistro := 'RegistroPrueba';
-					RCliente;
-						
-							//Como se deben realizar tres registros y tres archivos (uno por cada tipo de reservacion) esta idea está sujeta a cambios puesto que se esta planteando hacer el proceso anterior mostrado dos veces mas
-					
-				end;//end del primer caso
-			'B':
-				begin
-					assign (archivo1, 'registro_reservacion_individual'); //archivo de reservacion individual
-					rewrite (archivo1);
-					begin
-						for i := 1 to Tdatos do
-							WriteLn(i,'-', ' ', DCliente.nombre, ' ' ,DCliente.apellido); //posible manera para mostrar las personas del registro
-					end;
-					close (archivo1);
-					
-					writeln ('Por favor, seleccione el tipo de reservacion:');
+				    
+				    writeln ('Por favor, seleccione el tipo de reservacion:');
 					writeln ('a-INDIVIDUAL');
 					writeln ('b-ACOMPAÑADO');
 					writeln ('c-GRUPO/FAMILIA');
@@ -172,6 +157,8 @@ BEGIN
 							val (reservacion,x2,cod2)
 						end;
 					until cod2>0;
+					RCliente;
+					
 					case reservacion of
 						'a': 
 							begin
@@ -381,14 +368,17 @@ BEGIN
 							
 					end;// end del case de reservacion
 				end; // end del segundo caso
-			'C':
+						
+							//Como se deben realizar tres registros y tres archivos (uno por cada tipo de reservacion) esta idea está sujeta a cambios puesto que se esta planteando hacer el proceso anterior mostrado dos veces mas
+					
+				
+				
+			'B':
 				begin
 					writeln ('Hasta luego, tenga feliz dia.');
 				end;// end del tercer caso
-				
-		end;// end del primer case
 
-	
+			end;//end del primer caso
 	
 END.
 
