@@ -3,12 +3,10 @@
 
 program Sistema_de_Reservacionlidotel;
 uses crt;
-{Se empiezan inicializando variables necesarias para el programa}
-var  menu, reservacion, habitaciones: string;
-var x1, cod1, x2, cod2, x3, cod3, Tdatos, i: integer;
-var
-	datos: array [1..2000] of
-		record
+
+type
+    TipoReservacion = (Individual, Acompanado, GrupoFamilia);
+	datos = record
 			nombre: string;
 			apellido: string;
 			cedula: longint;
@@ -16,8 +14,12 @@ var
 			email: string;
 			TDestadia: string;
 		end;
-var
-archivo1: text;
+
+{Se empiezan inicializando variables necesarias para el programa}
+var  menu, reservacion, habitaciones: string;
+     x1, cod1, x2, cod2, x3, cod3, Tdatos, i: integer;
+     DCliente: datos;
+	 archivo1: text;
 	
 	
 	
@@ -63,22 +65,22 @@ BEGIN
 					writeln ('por favor favor ingrese sus datos: ','Cliente numero [',Tdatos,']');
 					writeln;
 							writeln ('Nombre: ');
-							readln (datos[Tdatos].nombre);
+							readln (DCliente.nombre);
 							writeln;
 							writeln ('Apellido: ');
-							readln (datos[Tdatos].apellido);
+							readln (DCliente.apellido);
 							writeln;
 							writeln ('Cedula de identidad: ');
-							readln (datos[Tdatos].cedula);
+							readln (DCliente.cedula);
 							writeln;
 							writeln ('Email: ');
-							readln (datos[Tdatos].email);
+							readln (DCliente.email);
 							writeln;
 							writeln ('Numero de Telefono: ');
-							readln (datos[Tdatos].telefono);
+							readln (DCliente.telefono);
 							writeln; 
 							writeln ('Cantidad de dias de su estadia: ');
-							readln (datos[Tdatos].TDestadia);
+							readln (DCliente.TDestadia);
 							writeln;
 						
 							//Como se deben realizar tres registros y tres archivos (uno por cada tipo de reservacion) esta idea está sujeta a cambios puesto que se esta planteando hacer el proceso anterior mostrado dos veces mas
@@ -90,7 +92,7 @@ BEGIN
 					rewrite (archivo1);
 					begin
 						for i := 1 to Tdatos do
-							WriteLn(i,'-', ' ', datos[i].nombre, ' ' ,datos[i].apellido); //posible manera para mostrar las personas del registro
+							WriteLn(i,'-', ' ', DCliente.nombre, ' ' ,DCliente.apellido); //posible manera para mostrar las personas del registro
 					end;
 					close (archivo1);
 					
