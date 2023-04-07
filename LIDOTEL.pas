@@ -42,9 +42,9 @@ begin
 		  end;
 	end;
 	2:begin
-	 Assign(archivo, 'Acompañado.dat');
+	 Assign(archivo, 'Acompanado.dat');
 	 // Crear archivo si no existe
-		if not FileExists('Acompañado.dat') then
+		if not FileExists('Acompanado.dat') then
 		  begin
 			Rewrite(archivo);
 			Close(archivo);
@@ -257,6 +257,7 @@ BEGIN
 								TRegistro:= 2;
 								writeln ('usted ha seleccionado la reservacion de tipo acompañado');
 								writeln;
+								RCliente;
 								writeln ('Seleccione el tipo de habitacion');
 								writeln;
 								writeln('a-FAMILY ROOM');
@@ -326,6 +327,7 @@ BEGIN
 							TRegistro:= 3;
 								writeln ('usted ha seleccionado la reservacion de tipo grupo/familia');
 								writeln;
+								RCliente;
 								writeln ('Seleccione el tipo de habitacion');
 								writeln;
 								writeln('a-FAMILY ROOM');
