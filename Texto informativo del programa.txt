@@ -13,7 +13,8 @@ VAR
 	DCliente: Datos ingresados por el cliente
 	DRegistrar: Datos ingresados por el cliente almacenados para ser registrados en caso de que el cliente no este registrado
 	ECedula: Valor booleano para validar la Existencia de la cedula en los registros
-	
+	PTotal: Variable que almacena el precio total de la reservacion
+	DEstadia: Almacena el tiempo en dias de estadia
 
 Procedures
 	RCliente: Almacena todo el procedimiento para el registro de un nuevo cliente y la verificacion de su existencia en los registros

@@ -251,7 +251,7 @@ BEGIN
 								
 								end; // end del case de las habitaciones
 							
-							end; // end de la primera opcion del case de los tipos de reservaciones
+							end; 
 						'b':
 							begin
 								TRegistro:= 2;
@@ -391,7 +391,7 @@ BEGIN
 									end;
 								
 								end; // end del case de las habitaciones
-							end;
+							end;// end de la primera opcion del case de los tipos de reservaciones
 							
 					end;// end del case de reservacion
 				end; // end del segundo caso
