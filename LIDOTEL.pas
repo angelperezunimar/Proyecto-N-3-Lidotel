@@ -123,9 +123,8 @@ BEGIN
 	writeln;
 	writeln ('¿QUE DESEA HACER?');
 	writeln;
-	writeln ('A-Registrar Nuevo cliente');
-	writeln ('B-Realizar reservacion (Nuevo cliente)');
-	writeln ('C-Cerrar sistema');
+	writeln ('A-Realizar reservacion');
+	writeln ('B-Cerrar sistema');
 	writeln;
 	//Primer vistazo al menu (sujeto a cambios)
 	repeat
@@ -134,7 +133,7 @@ BEGIN
 				begin
 					readln (menu);
 				end;
-			until (menu= 'A') or (menu='B') or (menu='C');  //primera validacion del programa (solo se pueden ingresar las letras indicadas)
+			until (menu= 'A') or (menu='B');//primera validacion del programa (solo se pueden ingresar las letras indicadas)
 			val (menu,x1,cod1)
 		end;
 	until cod1>0;
