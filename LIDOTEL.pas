@@ -14,7 +14,7 @@ type
 			cedula: string[10];
 			telefono: string;
 			email: string;
-			TDestadia: string;
+			TDestadia: integer;
 		end;
 
 {Se empiezan inicializando variables necesarias para el programa}
@@ -30,6 +30,8 @@ var  menu, reservacion, habitaciones,TRegistro: string;
 Procedure RCliente;
 begin
 
+
+
 	Assign(archivo, TRegistro);
 	
 		// Crear archivo si no existe
@@ -38,8 +40,9 @@ begin
 			Rewrite(archivo);
 			Close(archivo);
 		  end;
-		  
+		 
 	Reset(archivo);
+	
 	
 	writeln ('Comenzando el proceso de registro...');
 					writeln;
@@ -162,8 +165,12 @@ BEGIN
 					case reservacion of
 						'a': 
 							begin
+								TRegistro := 'Individual.dat';
 								writeln ('usted ha seleccionado la reservacion de tipo individual');
 								writeln;
+								RCliente;
+								readln;
+								clrscr;
 								writeln ('Seleccione el tipo de habitacion');
 								writeln;
 								writeln('a-FAMILY ROOM');
@@ -171,6 +178,7 @@ BEGIN
 								writeln ('c-DOBLE');
 								writeln ('d-SUITE');
 								writeln;
+								readln (habitaciones);  //tercer validacion del programa
 								repeat
 									begin
 										repeat
@@ -231,6 +239,7 @@ BEGIN
 							end; // end de la primera opcion del case de los tipos de reservaciones
 						'b':
 							begin
+								TRegistro:= 'Acompañado.dat';
 								writeln ('usted ha seleccionado la reservacion de tipo acompañado');
 								writeln;
 								writeln ('Seleccione el tipo de habitacion');
@@ -299,6 +308,7 @@ BEGIN
 							end;
 						'c':
 							begin
+							TRegistro:= 'Grupo_Familia.dat';
 								writeln ('usted ha seleccionado la reservacion de tipo grupo/familia');
 								writeln;
 								writeln ('Seleccione el tipo de habitacion');
@@ -368,8 +378,6 @@ BEGIN
 							
 					end;// end del case de reservacion
 				end; // end del segundo caso
-						
-							//Como se deben realizar tres registros y tres archivos (uno por cada tipo de reservacion) esta idea está sujeta a cambios puesto que se esta planteando hacer el proceso anterior mostrado dos veces mas
 					
 				
 				
