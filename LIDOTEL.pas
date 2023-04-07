@@ -2,28 +2,111 @@
 {Sistema de reservacion para el hotel LIDOTEL; realizado por Samuel Marcano, Angel Perez, Abdl Taktak}
 
 program Sistema_de_Reservacionlidotel;
-uses crt;
+uses 
+CRT,SysUtils;
 
+//Se declaran tipos necesarios para la organizacion y el desarrollo del programa
 type
     TipoReservacion = (Individual, Acompanado, GrupoFamilia);
 	datos = record
 			nombre: string;
 			apellido: string;
-			cedula: longint;
-			telefono: longint;
+			cedula: string[10];
+			telefono: string;
 			email: string;
 			TDestadia: string;
 		end;
 
 {Se empiezan inicializando variables necesarias para el programa}
-var  menu, reservacion, habitaciones: string;
+var  menu, reservacion, habitaciones,TRegistro: string;
      x1, cod1, x2, cod2, x3, cod3, Tdatos, i: integer;
-     DCliente: datos;
+     ECliente:string[10];
+     DCliente, DRegistrar: datos;
 	 archivo1: text;
+	 archivo: file of datos;
+	 ECedula: boolean;
 	
+	//Procedimiento para el registro del cliente
+Procedure RCliente;
+begin
+
+	Assign(archivo, TRegistro);
 	
+		// Crear archivo si no existe
+		if not FileExists(TRegistro) then
+		  begin
+			Rewrite(archivo);
+			Close(archivo);
+		  end;
+		  
+	Reset(archivo);
 	
-		
+	writeln ('Comenzando el proceso de registro...');
+					writeln;
+					writeln ('por favor favor ingrese sus datos: ');
+					writeln;
+							writeln ('Nombre: ');
+							readln (DCliente.nombre);
+							DRegistrar.nombre := DCliente.nombre;
+							writeln;
+							writeln ('Apellido: ');
+							readln (DCliente.apellido);
+							DRegistrar.apellido := DCliente.apellido;
+							writeln;
+							writeln ('Cedula de identidad: ');
+							readln (DCliente.cedula);
+							DRegistrar.cedula := DCliente.cedula;
+							writeln;
+							writeln ('Email: ');
+							readln (DCliente.email);
+							DRegistrar.email := DCliente.email;
+							writeln;
+							writeln ('Numero de Telefono: ');
+							readln (DCliente.telefono);
+							DRegistrar.telefono := DCliente.telefono;
+							writeln; 
+							writeln ('Cantidad de dias de su estadia: ');
+							readln (DCliente.TDestadia);
+							DRegistrar.TDestadia := DCliente.TDestadia;
+							writeln;
+							ECliente:= DCliente.cedula;
+					        ECedula:= false;
+					        
+					        // Verifica si la cedula ha sido registrada
+					        while not EOF(archivo) do
+							  begin
+								Read(archivo, DCliente);
+								if DCliente.cedula = ECliente then
+								begin
+								  ECedula := True;
+								  Break;
+								end;
+							  end;
+	
+							Reset(archivo);
+							
+							DCliente.nombre := DRegistrar.nombre;
+							DCliente.apellido := DRegistrar.apellido;
+							DCliente.cedula := DRegistrar.cedula;
+							DCliente.email := DRegistrar.email;
+							DCliente.telefono := DRegistrar.telefono;
+							DCliente.TDestadia := DRegistrar.TDestadia;
+							
+							// Si la cedula no esta registrada, registra al usuario
+							  if not ECedula then
+							  begin
+								Seek(archivo, FileSize(archivo));
+								Write(archivo, DCliente);
+								Writeln('Registro realizado con exito');
+							  end
+							  else
+							  begin
+								Writeln('Este DNI ya está registrado.');
+							  end;
+
+  Close(archivo);		
+	
+end;
 
 BEGIN
 	Tdatos:=0;
@@ -59,29 +142,8 @@ BEGIN
 		case menu of
 			'A':
 				begin
-					writeln ('Comenzando el proceso de registro...');
-					writeln;
-					Tdatos:= Tdatos+1;
-					writeln ('por favor favor ingrese sus datos: ','Cliente numero [',Tdatos,']');
-					writeln;
-							writeln ('Nombre: ');
-							readln (DCliente.nombre);
-							writeln;
-							writeln ('Apellido: ');
-							readln (DCliente.apellido);
-							writeln;
-							writeln ('Cedula de identidad: ');
-							readln (DCliente.cedula);
-							writeln;
-							writeln ('Email: ');
-							readln (DCliente.email);
-							writeln;
-							writeln ('Numero de Telefono: ');
-							readln (DCliente.telefono);
-							writeln; 
-							writeln ('Cantidad de dias de su estadia: ');
-							readln (DCliente.TDestadia);
-							writeln;
+				    TRegistro := 'RegistroPrueba';
+					RCliente;
 						
 							//Como se deben realizar tres registros y tres archivos (uno por cada tipo de reservacion) esta idea está sujeta a cambios puesto que se esta planteando hacer el proceso anterior mostrado dos veces mas
 					

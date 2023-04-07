@@ -1,5 +1,19 @@
-Variables:
+TYPES
+TipoReservacion: Se usa para identificar al tipo de reservacion 
+datos: registro que almacena todos los datos necesarios para el registro de un cliente
+
+
+VAR
 	menu: Para realizar el menu de seleccion para el cliente
 	Datos: primera variable para almacenar datos (dispuesta a cambiarse)
 	x1: variable para almacenar la cadena de caracteres trasnformada (para la validación)
 	cod1: para almacenar la variable transformada exitosamente (para la validación)
+	TRegistro: Almacenara el nombre del tipo de reservacion para crear y revisar el archivo adecuado
+	ECliente: Verifica la existencia del cliente mediante la cedula
+	DCliente: Datos ingresados por el cliente
+	DRegistrar: Datos ingresados por el cliente almacenados para ser registrados en caso de que el cliente no este registrado
+	ECedula: Valor booleano para validar la Existencia de la cedula en los registros
+	
+
+Procedures
+	RCliente: Almacena todo el procedimiento para el registro de un nuevo cliente y la verificacion de su existencia en los registros
