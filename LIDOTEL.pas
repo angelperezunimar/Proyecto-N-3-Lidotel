@@ -96,7 +96,7 @@ begin
 							writeln;
 							gotoxy(20,18);writeln ('========================');
 							gotoxy(20,19);write ('Numero de Telefono: ');
-							gotoxy(20,20);writeln ('========================');
+							
 							readln (DCliente.telefono);
 							DRegistrar.telefono := DCliente.telefono;
 							writeln; 
@@ -134,9 +134,51 @@ begin
 							// Si la cedula no esta registrada, registra al usuario
 							  if not ECedula then
 							  begin
+							  clrscr;
 								Seek(archivo, FileSize(archivo));
 								Write(archivo, DCliente);
-								Writeln('Registro realizado con exito');
+								gotoxy(20,10);writeln('============================');
+								gotoxy(20,11);Writeln('Registro realizado con exito');
+								gotoxy(20,12);writeln('============================');
+								delay(2000);
+								read;
+								clrscr;
+								gotoxy(20,11);Writeln('Agregando su informacion al sistema, porfavor espere');
+								gotoxy(20,15);writeln('==========');
+								gotoxy(20,17);writeln('==========');
+								
+								gotoxy(20,16);Writeln('/');
+								delay(2000);
+								read;
+								gotoxy(21,16);Writeln('/');
+								delay(100);
+								read;
+								gotoxy(22,16);Writeln('/');
+								delay(100);
+								read;
+								gotoxy(23,16);Writeln('/');
+								delay(300);
+								read;
+								gotoxy(24,16);Writeln('/');
+								delay(200);
+								read;
+								gotoxy(25,16);Writeln('/');
+								delay(100);
+								read;
+								gotoxy(26,16);Writeln('/');
+								delay(100);
+								read;
+								gotoxy(27,16);Writeln('/');
+								delay(100);
+								read;
+								gotoxy(28,16);Writeln('/');
+								delay(100);
+								read;
+								gotoxy(29,16);Writeln('/');
+								delay(100);
+								read;
+								
+								
 							  end
 							  else
 							  begin
@@ -192,7 +234,7 @@ BEGIN
 				    gotoxy(30,6);writeln('------------------------------------------------');
 					gotoxy(45,7);writeln ('a-INDIVIDUAL');
 					gotoxy(30,8);writeln('------------------------------------------------');
-					gotoxy(45,9);writeln ('b-ACOMPAnADO');
+					gotoxy(45,9);writeln ('b-ACOMPANADO');
 					gotoxy(30,10);writeln('------------------------------------------------');
 					gotoxy(45,11);writeln ('c-GRUPO/FAMILIA');
 					gotoxy(30,12);writeln('------------------------------------------------');
@@ -217,8 +259,8 @@ BEGIN
 								gotoxy(30,2);writeln('Usted ha seleccionado la reservacion de tipo individual');
 								gotoxy(30,3);writeln('/=====================================================/');
 								writeln;
-								clrscr;
 								RCliente;
+								clrscr;
 								writeln ('--------------------------------');
 								writeln ('Seleccione el tipo de habitacion');
 								writeln ('--------------------------------');
