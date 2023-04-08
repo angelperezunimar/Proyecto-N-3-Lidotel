@@ -173,10 +173,14 @@ BEGIN
 			'A':
 				begin
 				    clrscr;
-				    writeln ('Por favor, seleccione el tipo de reservacion:');
-					writeln ('a-INDIVIDUAL');
-					writeln ('b-ACOMPAÑADO');
-					writeln ('c-GRUPO/FAMILIA');
+				    writeln ('///Por favor, seleccione el tipo de reservacion:');
+				    gotoxy(30,6);writeln('------------------------------------------------');
+					gotoxy(45,7);writeln ('a-INDIVIDUAL');
+					gotoxy(30,8);writeln('------------------------------------------------');
+					gotoxy(45,9);writeln ('b-ACOMPAnADO');
+					gotoxy(30,10);writeln('------------------------------------------------');
+					gotoxy(45,11);writeln ('c-GRUPO/FAMILIA');
+					gotoxy(30,12);writeln('------------------------------------------------');
 					writeln;
 					repeat
 						begin
@@ -192,16 +196,26 @@ BEGIN
 					case reservacion of
 						'a': 
 							begin
+							clrscr;
 								TRegistro:= 1;
-								writeln ('usted ha seleccionado la reservacion de tipo individual');
+								gotoxy(30,1);writeln('/=====================================================/');
+								gotoxy(30,2);writeln('Usted ha seleccionado la reservacion de tipo individual');
+								gotoxy(30,3);writeln('/=====================================================/');
 								writeln;
 								RCliente;
+								writeln ('--------------------------------');
 								writeln ('Seleccione el tipo de habitacion');
+								writeln ('--------------------------------');
 								writeln;
+								writeln ('');
 								writeln('a-FAMILY ROOM');
+								writeln ('-----------------------------');
 								writeln ('b-SENCILLA');
+								writeln ('--------------------------');
 								writeln ('c-DOBLE');
+								writeln ('-----------------------');
 								writeln ('d-SUITE');
+								writeln ('--------------------');
 								writeln;
 								repeat
 									begin
