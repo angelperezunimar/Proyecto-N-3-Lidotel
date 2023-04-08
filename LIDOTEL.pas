@@ -63,31 +63,46 @@ begin
 	Reset(archivo);
 	
 	
-	writeln ('Comenzando el proceso de registro...');
+	gotoxy(30,15);writeln ('Comenzando el proceso de registro...');
+	delay(2000);
+	read;
+			clrscr;
 					writeln;
-					writeln ('por favor favor ingrese sus datos: ');
+					writeln ('////Por favor favor ingrese sus datos: ');
 					writeln;
-							writeln ('Nombre: ');
+							gotoxy(20,6);writeln ('========================');
+							gotoxy(20,7);write ('Nombre: ');
+							
 							readln (DCliente.nombre);
 							DRegistrar.nombre := DCliente.nombre;
 							writeln;
-							writeln ('Apellido: ');
+							gotoxy(20,9);writeln ('========================');
+							gotoxy(20,10);write ('Apellido: ');
+							
 							readln (DCliente.apellido);
 							DRegistrar.apellido := DCliente.apellido;
 							writeln;
-							writeln ('Cedula de identidad: ');
+							gotoxy(20,12);writeln ('========================');
+							gotoxy(20,13);write ('Cedula de identidad: ');
+							
 							readln (DCliente.cedula);
 							DRegistrar.cedula := DCliente.cedula;
 							writeln;
-							writeln ('Email: ');
+							gotoxy(20,15);writeln ('========================');
+							gotoxy(20,16);write ('Email: ');
+							
 							readln (DCliente.email);
 							DRegistrar.email := DCliente.email;
 							writeln;
-							writeln ('Numero de Telefono: ');
+							gotoxy(20,18);writeln ('========================');
+							gotoxy(20,19);write ('Numero de Telefono: ');
+							gotoxy(20,20);writeln ('========================');
 							readln (DCliente.telefono);
 							DRegistrar.telefono := DCliente.telefono;
 							writeln; 
-							writeln ('Cantidad de dias de su estadia: ');
+							gotoxy(20,21);writeln ('========================');
+							gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
+							
 							readln (DCliente.TDestadia);
 							DRegistrar.TDestadia := DCliente.TDestadia;
 							writeln;
@@ -202,6 +217,7 @@ BEGIN
 								gotoxy(30,2);writeln('Usted ha seleccionado la reservacion de tipo individual');
 								gotoxy(30,3);writeln('/=====================================================/');
 								writeln;
+								clrscr;
 								RCliente;
 								writeln ('--------------------------------');
 								writeln ('Seleccione el tipo de habitacion');
