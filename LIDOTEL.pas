@@ -135,20 +135,27 @@ end;
 BEGIN
 	Tdatos:=0;
 	textcolor (lightblue);
-	writeln ('=========================================================================================');
+	gotoxy(20,10);writeln ('=========================================================================================');
 	writeln;
-	writeln(' H O T E L   L I D O T E L   B O U T I Q U E  M A R G A R I T A');
+	gotoxy(32,12);writeln(' H O T E L   L I D O T E L   B O U T I Q U E  M A R G A R I T A');
 	writeln;
-	writeln ('=========================================================================================');
+	gotoxy(20,14);writeln ('=========================================================================================');
 	writeln;
-	writeln ('presione [ENTER] para continuar');
-	readln;
-	writeln ('BIENVENIDO AL SISTEMA DE RESERVACION DEL HOTEL LIDOTEL');
+	delay(2000);
+	read;
+	clrscr;
+	gotoxy(32,1);writeln ('======================================================');
+	gotoxy(32,2);writeln ('BIENVENIDO AL SISTEMA DE RESERVACION DEL HOTEL LIDOTEL');
+	gotoxy(32,3);writeln ('======================================================');
 	writeln;
-	writeln ('¿QUE DESEA HACER?');
+	gotoxy(25,5);writeln('------------------------------------------------------');
+	gotoxy(30,6);writeln ('---QUE DESEA HACER?');
 	writeln;
-	writeln ('A-Realizar reservacion');
-	writeln ('B-Cerrar sistema');
+	gotoxy(25,7);writeln('------------------------------------------------');
+	gotoxy(35,8);writeln ('A-Realizar reservacion');
+	gotoxy(25,9);writeln('---------------------------------------------');
+	gotoxy(35,10);writeln ('B-Cerrar sistema');
+	gotoxy(25,11);writeln('------------------------------------------');
 	writeln;
 	//Primer vistazo al menu (sujeto a cambios)
 	repeat
@@ -165,7 +172,7 @@ BEGIN
 		case menu of
 			'A':
 				begin
-				    
+				    clrscr;
 				    writeln ('Por favor, seleccione el tipo de reservacion:');
 					writeln ('a-INDIVIDUAL');
 					writeln ('b-ACOMPAÑADO');
@@ -410,7 +417,35 @@ BEGIN
 				
 			'B':
 				begin
-					writeln ('Hasta luego, tenga feliz dia.');
+				clrscr;
+					gotoxy(40,9);writeln ('============================');
+					gotoxy(40,11);writeln ('Hasta luego, tenga feliz dia');
+					gotoxy(40,13);writeln ('============================');
+					delay(2000);
+					read;
+					clrscr;
+					gotoxy(32,5);writeln ('__________,-~-. _.-._.-~-,');
+					gotoxy(32,6);writeln ('_________/ .- ,_______`-. \');
+					gotoxy(32,7);writeln ('_________\ /`__________\/');
+					gotoxy(32,8);writeln ('_________ /___-a___a`___\');
+					gotoxy(32,9);writeln ('_________|____,-(_)`.____ |');
+					gotoxy(32,10);writeln ('_________\___( ._|_. )___ /');
+					gotoxy(32,11);writeln ('__________\___ .__,*___ /');
+					gotoxy(32,12);writeln ('__________.-`._______,*-.__');
+					gotoxy(32,13);writeln ('________,*__,*___`-*___`.__`.');
+					gotoxy(32,14);writeln ('_______/___/____V_____\___\_');
+					gotoxy(32,15);writeln ('_____,*____/_____o______\___`.__');
+					gotoxy(32,16);writeln ('___,*_____|______o_______|_____`.');
+					gotoxy(32,17);writeln ('__|_____,*|______o_______|`._____|');
+					gotoxy(32,18);writeln ('___`.__,*_.-\_____o______/-._`.__,');
+					gotoxy(32,19);writeln ('_________/_`.___o____,*__\_');
+					gotoxy(32,20);writeln ('__.""-._,*______`._:_,*_______`.,-""._');
+					gotoxy(32,21);writeln ('_/_,-._`_______)___(________*_,-.__\');
+					gotoxy(32,22);writeln ('(_(___`._____,*_____`.______,*___)_)');
+					gotoxy(32,23);writeln ('_\_\____\__,*________`.____/.___/_/');
+					delay(2000);
+					read;
+					clrscr;
 				end;// end del tercer caso
 
 			end;//end del primer caso
