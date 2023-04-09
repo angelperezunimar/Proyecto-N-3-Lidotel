@@ -189,6 +189,7 @@ begin
 							  else
 							  begin
 								Writeln('Este DNI ya está registrado.');
+								i:= i-1;
 							  end;
 
   Close(archivo);		
@@ -466,7 +467,7 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 200 * (DEstadia - 1);
 										writeln;
 										writeln ('Presione [enter] para continuar');
 										readln;
@@ -566,7 +567,7 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 120 * (DEstadia - 1);
 										writeln;
 										writeln ('Presione [enter] para continuar');
 										readln;
@@ -616,7 +617,7 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 300 * (DEstadia - 1);
 										writeln;
 										writeln ('Presione [enter] para continuar');
 										readln;
@@ -702,7 +703,7 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 200 * (DEstadia - 1);
 										writeln;
 										writeln ('Presione [enter] para continuar');
 										readln;
@@ -798,7 +799,7 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 120 * (DEstadia - 1);
 										writeln;
 										writeln ('Presione [enter] para continuar');
 										readln;
@@ -846,7 +847,7 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 300 * (DEstadia - 1);
 										writeln;
 										writeln ('Presione [enter] para continuar');
 										readln;
