@@ -18,13 +18,13 @@ type
 		end;
 
 {Se empiezan inicializando variables necesarias para el programa}
-var  menu, reservacion, habitaciones,SDatos: string;
-     x1, cod1, x2, cod2, x3, cod3, Tdatos, i, TRegistro, PTotal, DEstadia,n,j: integer;
+var  menu, reservacion, habitaciones,SDatos,vali: string;
+     x1, cod1, x2, cod2, x3, cod3,x4, Tdatos, i, TRegistro, PTotal, DEstadia,n,j: longint;
      ECliente: string[10];
      DCliente, DRegistrar: array of datos;
 	 archivo1: text;
 	 archivo: file of datos;
-	 ECedula,CSistema,MDatos: boolean;
+	 ECedula,CSistema,MDatos,valvali: boolean;
 	
 	//Procedimiento para el registro del cliente
 Procedure RCliente;
@@ -711,8 +711,16 @@ BEGIN
 								TRegistro:= 3;
 								writeln ('usted ha seleccionado la reservacion de tipo grupo/familia');
 								writeln;
+								repeat
 								writeln ('Ingrese el numero de personas que desea registrar en la reservacion');
-								readln(i);
+								readln (vali);
+								if not TryStrToInt(vali, i) then
+								  begin
+									WriteLn('Entrada inválida. Solo se permiten números enteros.');
+									Exit;
+									valvali:= true;
+								  end;
+								 until valvali = false; 
 								n:=i;
 								writeln;
 								for i:= 1 to n do
