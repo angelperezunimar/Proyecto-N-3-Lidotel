@@ -493,9 +493,18 @@ BEGIN
 								RCliente;
 								end;
 								clrscr;
+								repeat
 								gotoxy(20,21);writeln ('========================');
 								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
-								readln (DCliente[i].TDestadia);
+								readln(vali);
+								if not TryStrToInt(vali, DCliente[i].TDestadia) then
+								  begin
+									WriteLn('Entrada inválida. Solo se permiten números enteros.');
+									valvali:= true;
+								  end
+								  else 
+								  valvali:=false;
+								 until valvali = false; 
 								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
 								for i:= 1 to n do
 								begin
@@ -748,11 +757,19 @@ BEGIN
 								RCliente;
 								end;
 								clrscr;
+								repeat
 								gotoxy(20,21);writeln ('========================');
 								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
-								readln (DCliente[i].TDestadia);
+								readln(vali);
+								if not TryStrToInt(vali, DCliente[i].TDestadia) then
+								  begin
+									WriteLn('Entrada inválida. Solo se permiten números enteros.');
+									valvali:= true;
+								  end
+								  else 
+								  valvali:=false;
+								 until valvali = false; 
 								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
-								for i:= 1 to n do
 								begin
 								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
 								end;
