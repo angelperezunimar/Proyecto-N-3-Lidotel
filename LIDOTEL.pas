@@ -74,7 +74,7 @@ begin
 	read;
 			clrscr;
 					writeln;
-					writeln ('////Por favor favor ingrese los datos del cliente numero ', i,' : ');
+					writeln ('////Por favor favor ingrese los datos del cliente numero ', i,': ');
 					writeln;
 							gotoxy(20,6);writeln ('========================');
 							gotoxy(20,7);write ('Nombre: ');
@@ -632,7 +632,9 @@ BEGIN
 										begin
 										MDatos := true;
 										clrscr;
-										writeln('Ingrese el numero del cliente que desee visualizar los datos');
+										writeln('Ingrese el numero de acuerdo a los datos que desea visualizar');
+										writeln('1- Cliente principal');
+										writeln('2- Acompanante');
 										writeln;
 										readln(i);
 										writeln('DATOS DE LA RESERVACION');
@@ -651,11 +653,14 @@ BEGIN
 										writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
-										end;
-										until MDatos = false;
+										
 									end;
+									until MDatos = false;
+							
 								
-								end; // end del case de las habitaciones
+							end;
+							
+							end;
 							end;
 						'c':
 							begin
@@ -697,6 +702,43 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+										PTotal:= 60 * (DEstadia - 1);
+										writeln;
+										writeln ('Presione [enter] para continuar');
+										readln;
+										clrscr;
+										repeat
+										clrscr;
+										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(SDatos);
+										if SDatos = 'B' then MDatos := False;
+										if SDatos = 'A' then 
+										begin
+										MDatos := true;
+										clrscr;
+										writeln('Ingrese el numero del cliente que desee visualizar los datos');
+										writeln;
+										readln(i);
+										writeln('DATOS DE LA RESERVACION');
+										writeln('===========================================================');
+										writeln(Dregistrar[i].nombre);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].apellido);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].cedula);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].telefono);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].email);
+										writeln('===========================================================');
+										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
+										end;
+										until MDatos = false;
 									end;
 								
 								'b':
@@ -708,6 +750,43 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
+										PTotal:= 60 * (DEstadia - 1);
+										writeln;
+										writeln ('Presione [enter] para continuar');
+										readln;
+										clrscr;
+										repeat
+										clrscr;
+										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(SDatos);
+										if SDatos = 'B' then MDatos := False;
+										if SDatos = 'A' then 
+										begin
+										MDatos := true;
+										clrscr;
+										writeln('Ingrese el numero del cliente que desee visualizar los datos');
+										writeln;
+										readln(i);
+										writeln('DATOS DE LA RESERVACION');
+										writeln('===========================================================');
+										writeln(Dregistrar[i].nombre);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].apellido);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].cedula);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].telefono);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].email);
+										writeln('===========================================================');
+										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
+										end;
+										until MDatos = false;
 									end;
 								
 								'c':
@@ -719,6 +798,43 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
+										PTotal:= 60 * (DEstadia - 1);
+										writeln;
+										writeln ('Presione [enter] para continuar');
+										readln;
+										clrscr;
+										repeat
+										clrscr;
+										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(SDatos);
+										if SDatos = 'B' then MDatos := False;
+										if SDatos = 'A' then 
+										begin
+										MDatos := true;
+										clrscr;
+										writeln('Ingrese el numero del cliente que desee visualizar los datos');
+										writeln;
+										readln(i);
+										writeln('DATOS DE LA RESERVACION');
+										writeln('===========================================================');
+										writeln(Dregistrar[i].nombre);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].apellido);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].cedula);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].telefono);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].email);
+										writeln('===========================================================');
+										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
+										end;
+										until MDatos = false;
 									end;
 								
 								'd':
@@ -730,6 +846,43 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+										PTotal:= 60 * (DEstadia - 1);
+										writeln;
+										writeln ('Presione [enter] para continuar');
+										readln;
+										clrscr;
+										repeat
+										clrscr;
+										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(SDatos);
+										if SDatos = 'B' then MDatos := False;
+										if SDatos = 'A' then 
+										begin
+										MDatos := true;
+										clrscr;
+										writeln('Ingrese el numero del cliente que desee visualizar los datos');
+										writeln;
+										readln(i);
+										writeln('DATOS DE LA RESERVACION');
+										writeln('===========================================================');
+										writeln(Dregistrar[i].nombre);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].apellido);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].cedula);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].telefono);
+										writeln('===========================================================');
+										writeln(Dregistrar[i].email);
+										writeln('===========================================================');
+										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
+										end;
+										until MDatos = false;
 									end;
 								
 								end; // end del case de las habitaciones
