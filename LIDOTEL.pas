@@ -68,7 +68,6 @@ begin
 			end;
 	Reset(archivo);
 	
-	
 	gotoxy(30,15);writeln ('Comenzando el proceso de registro...');
 	delay(2000);
 	read;
@@ -137,8 +136,56 @@ begin
 							DCliente[i].telefono := DRegistrar[i].telefono;
 							DCliente[i].TDestadia := DRegistrar[i].TDestadia;
 							
+							if ECedula = True then
+							begin
+								Writeln('Este DNI ya está registrado.');
+								i:= i-1;
+							  end;
+							Close(archivo);	
 							// Si la cedula no esta registrada, registra al usuario
-							  if not ECedula then
+	
+end;
+
+procedure GRegistro;
+
+begin 
+
+	case TRegistro of
+	1:
+	 begin
+		Assign(archivo, 'Individual.dat');
+		
+		// Crear archivo si no existe
+			if not FileExists('Individual.dat') then
+			  begin
+				Rewrite(archivo);
+				Close(archivo);
+		  end;
+	end;
+	2:
+	begin
+		 Assign(archivo, 'Acompanado.dat');
+		 // Crear archivo si no existe
+			if not FileExists('Acompanado.dat') then
+			  begin
+				Rewrite(archivo);
+				Close(archivo);
+			  end;
+		 end;
+	3:
+	begin
+		Assign(archivo, 'Grupo_Familia.dat');
+		// Crear archivo si no existe
+			if not FileExists('Grupo_Familia.dat') then
+			begin
+				Rewrite(archivo);
+				Close(archivo);
+			end;
+			end;
+			end;
+	Reset(archivo);
+	
+								if not ECedula then
 							  begin
 							  clrscr;
 								Seek(archivo, FileSize(archivo));
@@ -184,16 +231,11 @@ begin
 								delay(100);
 								read;
 								
-								
-							  end
-							  else
-							  begin
-								Writeln('Este DNI ya está registrado.');
-								i:= i-1;
 							  end;
 
   Close(archivo);		
 	
+
 end;
 
 BEGIN
@@ -327,6 +369,7 @@ BEGIN
 										writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										
 										
 									end;
 								
@@ -740,6 +783,10 @@ BEGIN
 										readln();
 										end;
 										until MDatos = false;
+										for i:= 1 to n do
+										begin
+										GRegistro;
+										end;
 									end;
 								
 								'b':

@@ -21,3 +21,4 @@ VAR
 
 Procedures
 	RCliente: Almacena todo el procedimiento para el registro de un nuevo cliente y la verificacion de su existencia en los registros
+	GRegistro: Guarda los datos de reservacion dentro de los archivos
