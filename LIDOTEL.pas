@@ -19,8 +19,8 @@ type
 
 {Se empiezan inicializando variables necesarias para el programa}
 var  menu, reservacion, habitaciones: string;
-     x1, cod1, x2, cod2, x3, cod3, Tdatos, i,TRegistro,PTotal,DEstadia: integer;
-     ECliente:string[10];
+     x1, cod1, x2, cod2, x3, cod3, Tdatos, i, TRegistro, PTotal, DEstadia: integer;
+     ECliente: string[10];
      DCliente, DRegistrar: datos;
 	 archivo1: text;
 	 archivo: file of datos;
@@ -31,35 +31,38 @@ Procedure RCliente;
 begin
 	
 	case TRegistro of
-	1: begin
-	Assign(archivo, 'Individual.dat');
-	
-	// Crear archivo si no existe
-		if not FileExists('Individual.dat') then
-		  begin
-			Rewrite(archivo);
-			Close(archivo);
+	1:
+	 begin
+		Assign(archivo, 'Individual.dat');
+		
+		// Crear archivo si no existe
+			if not FileExists('Individual.dat') then
+			  begin
+				Rewrite(archivo);
+				Close(archivo);
 		  end;
 	end;
-	2:begin
-	 Assign(archivo, 'Acompanado.dat');
-	 // Crear archivo si no existe
-		if not FileExists('Acompanado.dat') then
-		  begin
-			Rewrite(archivo);
-			Close(archivo);
-		  end;
+	2:
+	begin
+		 Assign(archivo, 'Acompanado.dat');
+		 // Crear archivo si no existe
+			if not FileExists('Acompanado.dat') then
+			  begin
+				Rewrite(archivo);
+				Close(archivo);
+			  end;
 		 end;
-	3:begin
-	Assign(archivo, 'Grupo_Familia.dat');
-	// Crear archivo si no existe
-		if not FileExists('Grupo_Familia.dat') then
-		  begin
-			Rewrite(archivo);
-			Close(archivo);
-		  end;
-		 end;
-		 end;
+	3:
+	begin
+		Assign(archivo, 'Grupo_Familia.dat');
+		// Crear archivo si no existe
+			if not FileExists('Grupo_Familia.dat') then
+			begin
+				Rewrite(archivo);
+				Close(archivo);
+			end;
+			end;
+			end;
 	Reset(archivo);
 	
 	
@@ -253,7 +256,7 @@ BEGIN
 					case reservacion of
 						'a': 
 							begin
-							clrscr;
+								clrscr;
 								TRegistro:= 1;
 								gotoxy(30,1);writeln('/=====================================================/');
 								gotoxy(30,2);writeln('Usted ha seleccionado la reservacion de tipo individual');
@@ -486,7 +489,7 @@ BEGIN
 							end;
 						'c':
 							begin
-							TRegistro:= 3;
+								TRegistro:= 3;
 								writeln ('usted ha seleccionado la reservacion de tipo grupo/familia');
 								writeln;
 								RCliente;
