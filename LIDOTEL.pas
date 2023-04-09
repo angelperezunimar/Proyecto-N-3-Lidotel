@@ -14,7 +14,7 @@ type
 			cedula: string[10];
 			telefono: string;
 			email: string;
-			TDestadia: integer;
+			TDestadia: longint;
 		end;
 
 {Se empiezan inicializando variables necesarias para el programa}
@@ -105,12 +105,6 @@ begin
 							readln (DCliente[i].telefono);
 							DRegistrar[i].telefono := DCliente[i].telefono;
 							writeln; 
-							gotoxy(20,21);writeln ('========================');
-							gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
-							
-							readln (DCliente[i].TDestadia);
-							DRegistrar[i].TDestadia := DCliente[i].TDestadia;
-							writeln;
 							
 							DEstadia:= DCliente[i].TDestadia;
 							ECliente:= DCliente[i].cedula;
@@ -314,6 +308,21 @@ BEGIN
 								writeln;
 								RCliente;
 								clrscr;
+								repeat
+								gotoxy(20,21);writeln ('========================');
+								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
+								readln(vali);
+								if not TryStrToInt(vali, DCliente[i].TDestadia) then
+								  begin
+									WriteLn('Entrada inválida. Solo se permiten números enteros.');
+									valvali:= true;
+								  end
+								  else 
+								  valvali:=false;
+								 until valvali = false; 
+								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
+								clrscr;
+								writeln;
 								writeln ('--------------------------------');
 								writeln ('Seleccione el tipo de habitacion');
 								writeln ('--------------------------------');
@@ -483,6 +492,16 @@ BEGIN
 								begin
 								RCliente;
 								end;
+								clrscr;
+								gotoxy(20,21);writeln ('========================');
+								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
+								readln (DCliente[i].TDestadia);
+								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
+								for i:= 1 to n do
+								begin
+								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
+								end;
+								clrscr;
 								writeln ('Seleccione el tipo de habitacion');
 								writeln;
 								writeln('a-FAMILY ROOM');
@@ -717,9 +736,10 @@ BEGIN
 								if not TryStrToInt(vali, i) then
 								  begin
 									WriteLn('Entrada inválida. Solo se permiten números enteros.');
-									Exit;
-									valvali:= true;
-								  end;
+									valvali:=true;
+								  end
+								  else 
+								  valvali:=false;
 								 until valvali = false; 
 								n:=i;
 								writeln;
@@ -727,6 +747,16 @@ BEGIN
 								begin
 								RCliente;
 								end;
+								clrscr;
+								gotoxy(20,21);writeln ('========================');
+								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
+								readln (DCliente[i].TDestadia);
+								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
+								for i:= 1 to n do
+								begin
+								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
+								end;
+								clrscr;
 								writeln ('Seleccione el tipo de habitacion');
 								writeln;
 								writeln('a-FAMILY ROOM');
