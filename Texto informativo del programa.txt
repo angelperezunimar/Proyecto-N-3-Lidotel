@@ -16,6 +16,8 @@ VAR
 	PTotal: Variable que almacena el precio total de la reservacion
 	DEstadia: Almacena el tiempo en dias de estadia
 	CSistema: Valor booleano para cerrar o repetir el sistema
+	MDatos: Valor booleano para cerrar o repetir el apartado de datos de registro
+	SDatos: Variable para seleccionar si se desean ver los datos de algun cliente
 
 Procedures
 	RCliente: Almacena todo el procedimiento para el registro de un nuevo cliente y la verificacion de su existencia en los registros
