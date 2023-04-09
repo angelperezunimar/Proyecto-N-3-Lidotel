@@ -296,11 +296,25 @@ BEGIN
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
 										PTotal:= 200 * (DEstadia - 1);
+										writeln;
+										writeln ('Presione [enter] para continuar');
+										readln;
 										clrscr;
 										writeln('DATOS DE LA RESERVACION');
-										writeln('');
-										writeln('');
-										writeln('');
+										writeln('===========================================================');
+										writeln(Dregistrar.nombre);
+										writeln('===========================================================');
+										writeln(Dregistrar.apellido);
+										writeln('===========================================================');
+										writeln(Dregistrar.cedula);
+										writeln('===========================================================');
+										writeln(Dregistrar.telefono);
+										writeln('===========================================================');
+										writeln(Dregistrar.email);
+										writeln('===========================================================');
+										writeln('Los dias de estadia son: ' ,Dregistrar.TDestadia);
+										writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										
 									end;
 								
