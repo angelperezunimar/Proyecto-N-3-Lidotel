@@ -19,9 +19,9 @@ type
 
 {Se empiezan inicializando variables necesarias para el programa}
 var  menu, reservacion, habitaciones: string;
-     x1, cod1, x2, cod2, x3, cod3, Tdatos, i, TRegistro, PTotal, DEstadia: integer;
+     x1, cod1, x2, cod2, x3, cod3, Tdatos, i, TRegistro, PTotal, DEstadia,n,j: integer;
      ECliente: string[10];
-     DCliente, DRegistrar: datos;
+     DCliente, DRegistrar: array of datos;
 	 archivo1: text;
 	 archivo: file of datos;
 	 ECedula,CSistema: boolean;
@@ -29,6 +29,9 @@ var  menu, reservacion, habitaciones: string;
 	//Procedimiento para el registro del cliente
 Procedure RCliente;
 begin
+	
+	SetLength(DCliente, n);
+	SetLength(DRegistrar, n);
 	
 	case TRegistro of
 	1:
@@ -76,49 +79,49 @@ begin
 							gotoxy(20,6);writeln ('========================');
 							gotoxy(20,7);write ('Nombre: ');
 							
-							readln (DCliente.nombre);
-							DRegistrar.nombre := DCliente.nombre;
+							readln (DCliente[i].nombre);
+							DRegistrar[i].nombre := DCliente[i].nombre;
 							writeln;
 							gotoxy(20,9);writeln ('========================');
 							gotoxy(20,10);write ('Apellido: ');
 							
-							readln (DCliente.apellido);
-							DRegistrar.apellido := DCliente.apellido;
+							readln (DCliente[i].apellido);
+							DRegistrar[i].apellido := DCliente[i].apellido;
 							writeln;
 							gotoxy(20,12);writeln ('========================');
 							gotoxy(20,13);write ('Cedula de identidad: ');
 							
-							readln (DCliente.cedula);
-							DRegistrar.cedula := DCliente.cedula;
+							readln (DCliente[i].cedula);
+							DRegistrar[i].cedula := DCliente[i].cedula;
 							writeln;
 							gotoxy(20,15);writeln ('========================');
 							gotoxy(20,16);write ('Email: ');
 							
-							readln (DCliente.email);
-							DRegistrar.email := DCliente.email;
+							readln (DCliente[i].email);
+							DRegistrar[i].email := DCliente[i].email;
 							writeln;
 							gotoxy(20,18);writeln ('========================');
 							gotoxy(20,19);write ('Numero de Telefono: ');
 							
-							readln (DCliente.telefono);
-							DRegistrar.telefono := DCliente.telefono;
+							readln (DCliente[i].telefono);
+							DRegistrar[i].telefono := DCliente[i].telefono;
 							writeln; 
 							gotoxy(20,21);writeln ('========================');
 							gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
 							
-							readln (DCliente.TDestadia);
-							DRegistrar.TDestadia := DCliente.TDestadia;
+							readln (DCliente[i].TDestadia);
+							DRegistrar[i].TDestadia := DCliente[i].TDestadia;
 							writeln;
 							
-							DEstadia:= DCliente.TDestadia;
-							ECliente:= DCliente.cedula;
+							DEstadia:= DCliente[i].TDestadia;
+							ECliente:= DCliente[i].cedula;
 					        ECedula:= false;
 					        
 					        // Verifica si la cedula ha sido registrada
 					        while not EOF(archivo) do
 							  begin
-								Read(archivo, DCliente);
-								if DCliente.cedula = ECliente then
+								Read(archivo, DCliente[i]);
+								if DCliente[i].cedula = ECliente then
 								begin
 								  ECedula := True;
 								  Break;
@@ -127,19 +130,19 @@ begin
 	
 							Reset(archivo);
 							
-							DCliente.nombre := DRegistrar.nombre;
-							DCliente.apellido := DRegistrar.apellido;
-							DCliente.cedula := DRegistrar.cedula;
-							DCliente.email := DRegistrar.email;
-							DCliente.telefono := DRegistrar.telefono;
-							DCliente.TDestadia := DRegistrar.TDestadia;
+							DCliente[i].nombre := DRegistrar[i].nombre;
+							DCliente[i].apellido := DRegistrar[i].apellido;
+							DCliente[i].cedula := DRegistrar[i].cedula;
+							DCliente[i].email := DRegistrar[i].email;
+							DCliente[i].telefono := DRegistrar[i].telefono;
+							DCliente[i].TDestadia := DRegistrar[i].TDestadia;
 							
 							// Si la cedula no esta registrada, registra al usuario
 							  if not ECedula then
 							  begin
 							  clrscr;
 								Seek(archivo, FileSize(archivo));
-								Write(archivo, DCliente);
+								Write(archivo, DCliente[i]);
 								gotoxy(20,10);writeln('============================');
 								gotoxy(20,11);Writeln('Registro realizado con exito');
 								gotoxy(20,12);writeln('============================');
@@ -258,6 +261,8 @@ BEGIN
 					case reservacion of
 						'a': 
 							begin
+								i:=1;
+								n:=1;
 								clrscr;
 								TRegistro:= 1;
 								gotoxy(30,1);writeln('/=====================================================/');
@@ -307,19 +312,20 @@ BEGIN
 										clrscr;
 										writeln('DATOS DE LA RESERVACION');
 										writeln('===========================================================');
-										writeln(Dregistrar.nombre);
+										writeln(Dregistrar[i].nombre);
 										writeln('===========================================================');
-										writeln(Dregistrar.apellido);
+										writeln(Dregistrar[i].apellido);
 										writeln('===========================================================');
-										writeln(Dregistrar.cedula);
+										writeln(Dregistrar[i].cedula);
 										writeln('===========================================================');
-										writeln(Dregistrar.telefono);
+										writeln(Dregistrar[i].telefono);
 										writeln('===========================================================');
-										writeln(Dregistrar.email);
+										writeln(Dregistrar[i].email);
 										writeln('===========================================================');
-										writeln('Los dias de estadia son: ' ,Dregistrar.TDestadia);
+										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
 										writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
 										
 									end;
 								
@@ -339,19 +345,20 @@ BEGIN
 										clrscr;
 										writeln('DATOS DE LA RESERVACION');
 										writeln('===========================================================');
-										writeln(Dregistrar.nombre);
+										writeln(Dregistrar[i].nombre);
 										writeln('===========================================================');
-										writeln(Dregistrar.apellido);
+										writeln(Dregistrar[i].apellido);
 										writeln('===========================================================');
-										writeln(Dregistrar.cedula);
+										writeln(Dregistrar[i].cedula);
 										writeln('===========================================================');
-										writeln(Dregistrar.telefono);
+										writeln(Dregistrar[i].telefono);
 										writeln('===========================================================');
-										writeln(Dregistrar.email);
+										writeln(Dregistrar[i].email);
 										writeln('===========================================================');
-										writeln('Los dias de estadia son: ' ,Dregistrar.TDestadia);
+										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
 										writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
 									end;
 								
 								'c':
@@ -370,19 +377,20 @@ BEGIN
 										clrscr;
 										writeln('DATOS DE LA RESERVACION');
 										writeln('===========================================================');
-										writeln(Dregistrar.nombre);
+										writeln(Dregistrar[i].nombre);
 										writeln('===========================================================');
-										writeln(Dregistrar.apellido);
+										writeln(Dregistrar[i].apellido);
 										writeln('===========================================================');
-										writeln(Dregistrar.cedula);
+										writeln(Dregistrar[i].cedula);
 										writeln('===========================================================');
-										writeln(Dregistrar.telefono);
+										writeln(Dregistrar[i].telefono);
 										writeln('===========================================================');
-										writeln(Dregistrar.email);
+										writeln(Dregistrar[i].email);
 										writeln('===========================================================');
-										writeln('Los dias de estadia son: ' ,Dregistrar.TDestadia);
+										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
 										writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
 									end;
 								
 								'd':
@@ -401,19 +409,20 @@ BEGIN
 										clrscr;
 										writeln('DATOS DE LA RESERVACION');
 										writeln('===========================================================');
-										writeln(Dregistrar.nombre);
+										writeln(Dregistrar[i].nombre);
 										writeln('===========================================================');
-										writeln(Dregistrar.apellido);
+										writeln(Dregistrar[i].apellido);
 										writeln('===========================================================');
-										writeln(Dregistrar.cedula);
+										writeln(Dregistrar[i].cedula);
 										writeln('===========================================================');
-										writeln(Dregistrar.telefono);
+										writeln(Dregistrar[i].telefono);
 										writeln('===========================================================');
-										writeln(Dregistrar.email);
+										writeln(Dregistrar[i].email);
 										writeln('===========================================================');
-										writeln('Los dias de estadia son: ' ,Dregistrar.TDestadia);
+										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
 										writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
 									end;
 								
 								end; // end del case de las habitaciones
