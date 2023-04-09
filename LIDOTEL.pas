@@ -24,7 +24,7 @@ var  menu, reservacion, habitaciones: string;
      DCliente, DRegistrar: datos;
 	 archivo1: text;
 	 archivo: file of datos;
-	 ECedula: boolean;
+	 ECedula,CSistema: boolean;
 	
 	//Procedimiento para el registro del cliente
 Procedure RCliente;
@@ -193,6 +193,7 @@ begin
 end;
 
 BEGIN
+	CSistema:=true;
 	Tdatos:=0;
 	textcolor (lightblue);
 	gotoxy(20,10);writeln ('=========================================================================================');
@@ -203,6 +204,7 @@ BEGIN
 	writeln;
 	delay(2000);
 	read;
+	repeat
 	clrscr;
 	gotoxy(32,1);writeln ('======================================================');
 	gotoxy(32,2);writeln ('BIENVENIDO AL SISTEMA DE RESERVACION DEL HOTEL LIDOTEL');
@@ -566,6 +568,7 @@ BEGIN
 			'B':
 				begin
 				clrscr;
+				CSistema:=false;
 					gotoxy(40,9);writeln ('============================');
 					gotoxy(40,11);writeln ('Hasta luego, tenga feliz dia');
 					gotoxy(40,13);writeln ('============================');
@@ -598,5 +601,6 @@ BEGIN
 
 			end;//end del primer caso
 	
+	until CSistema = false;
 END.
 

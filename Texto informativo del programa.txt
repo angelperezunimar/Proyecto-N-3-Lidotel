@@ -15,6 +15,7 @@ VAR
 	ECedula: Valor booleano para validar la Existencia de la cedula en los registros
 	PTotal: Variable que almacena el precio total de la reservacion
 	DEstadia: Almacena el tiempo en dias de estadia
+	CSistema: Valor booleano para cerrar o repetir el sistema
 
 Procedures
 	RCliente: Almacena todo el procedimiento para el registro de un nuevo cliente y la verificacion de su existencia en los registros
