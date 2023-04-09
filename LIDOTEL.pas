@@ -327,7 +327,26 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
-										Writeln('');
+										PTotal:= 60 * (DEstadia - 1);
+										writeln;
+										writeln ('Presione [enter] para continuar');
+										readln;
+										clrscr;
+										writeln('DATOS DE LA RESERVACION');
+										writeln('===========================================================');
+										writeln(Dregistrar.nombre);
+										writeln('===========================================================');
+										writeln(Dregistrar.apellido);
+										writeln('===========================================================');
+										writeln(Dregistrar.cedula);
+										writeln('===========================================================');
+										writeln(Dregistrar.telefono);
+										writeln('===========================================================');
+										writeln(Dregistrar.email);
+										writeln('===========================================================');
+										writeln('Los dias de estadia son: ' ,Dregistrar.TDestadia);
+										writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 									end;
 								
 								'c':
@@ -339,6 +358,26 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
+										PTotal:= 120 * (DEstadia - 1);
+										writeln;
+										writeln ('Presione [enter] para continuar');
+										readln;
+										clrscr;
+										writeln('DATOS DE LA RESERVACION');
+										writeln('===========================================================');
+										writeln(Dregistrar.nombre);
+										writeln('===========================================================');
+										writeln(Dregistrar.apellido);
+										writeln('===========================================================');
+										writeln(Dregistrar.cedula);
+										writeln('===========================================================');
+										writeln(Dregistrar.telefono);
+										writeln('===========================================================');
+										writeln(Dregistrar.email);
+										writeln('===========================================================');
+										writeln('Los dias de estadia son: ' ,Dregistrar.TDestadia);
+										writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 									end;
 								
 								'd':
@@ -350,6 +389,26 @@ BEGIN
 										writeln ('Incluye: ');
 										writeln;
 										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+										PTotal:= 300 * (DEstadia - 1);
+										writeln;
+										writeln ('Presione [enter] para continuar');
+										readln;
+										clrscr;
+										writeln('DATOS DE LA RESERVACION');
+										writeln('===========================================================');
+										writeln(Dregistrar.nombre);
+										writeln('===========================================================');
+										writeln(Dregistrar.apellido);
+										writeln('===========================================================');
+										writeln(Dregistrar.cedula);
+										writeln('===========================================================');
+										writeln(Dregistrar.telefono);
+										writeln('===========================================================');
+										writeln(Dregistrar.email);
+										writeln('===========================================================');
+										writeln('Los dias de estadia son: ' ,Dregistrar.TDestadia);
+										writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 									end;
 								
 								end; // end del case de las habitaciones
