@@ -18,6 +18,7 @@ VAR
 	CSistema: Valor booleano para cerrar o repetir el sistema
 	MDatos: Valor booleano para cerrar o repetir el apartado de datos de registro
 	SDatos: Variable para seleccionar si se desean ver los datos de algun cliente
+	MClientes: Variable booleana que determina si el usuario requiere de agregar mas personas a la reservacion
 
 Procedures
 	RCliente: Almacena todo el procedimiento para el registro de un nuevo cliente y la verificacion de su existencia en los registros

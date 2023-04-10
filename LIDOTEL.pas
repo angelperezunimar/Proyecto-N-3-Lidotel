@@ -18,20 +18,20 @@ type
 		end;
 
 {Se empiezan inicializando variables necesarias para el programa}
-var  menu, reservacion, habitaciones,SDatos,vali: string;
-     x1, cod1, x2, cod2, x3, cod3,x4, Tdatos, i, TRegistro, PTotal, DEstadia,n,j: longint;
+var  menu, reservacion, habitaciones,SDatos,vali,AClientes: string;
+     x1, cod1, x2, cod2, x3, cod3,x4, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2: longint;
      ECliente: string[10];
      DCliente, DRegistrar: array of datos;
 	 archivo1: text;
 	 archivo: file of datos;
-	 ECedula,CSistema,MDatos,valvali: boolean;
+	 ECedula,CSistema,MDatos,valvali,MClientes: boolean;
 	
 	//Procedimiento para el registro del cliente
 Procedure RCliente;
 begin
 	
-	SetLength(DCliente, n);
-	SetLength(DRegistrar, n);
+	SetLength(DCliente, (n + n2));
+	SetLength(DRegistrar, (n + n2));
 	
 	case TRegistro of
 	1:
@@ -245,6 +245,7 @@ BEGIN
 	delay(2000);
 	read;
 	repeat
+	n2:= 0;
 	clrscr;
 	gotoxy(32,1);writeln ('======================================================');
 	gotoxy(32,2);writeln ('BIENVENIDO AL SISTEMA DE RESERVACION DEL HOTEL LIDOTEL');
@@ -957,6 +958,14 @@ BEGIN
 										readln;
 										clrscr;
 										repeat
+										if MClientes = true then
+										begin
+										for i:= n + 1 to n + n2 do
+										begin
+										RCliente;
+										end;
+										end;
+										repeat
 										clrscr;
 										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
 										writeln('A-Si');
@@ -989,12 +998,26 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										end;
+										until MDatos = false;
+										writeln('¿Desea agregar a mas personas dentro del registro?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(AClientes);
+										if AClientes = 'B' then MClientes := False;
+										if AClientes = 'A' then 
+										begin
+										MClientes:= true;
+										writeln('Ingrese el numero de personas que desea agregar al registro');
+										writeln;
+										readln(n2);
+										end;
+										until MClientes = false;
 										for j:= 1 to n do
 										begin
 										GRegistro;
 										end;
-										end;
-										until MDatos = false;
+										
 									end;
 								
 								'b':
@@ -1022,6 +1045,14 @@ BEGIN
 										readln;
 										clrscr;
 										repeat
+										if MClientes = true then
+										begin
+										for i:= n + 1 to n + n2 do
+										begin
+										RCliente;
+										end;
+										end;
+										repeat
 										clrscr;
 										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
 										writeln('A-Si');
@@ -1054,12 +1085,26 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
-										for j:= 1 to n do
+										clrscr;
+										end;
+										until MDatos = false;
+										writeln('¿Desea agregar a mas personas dentro del registro?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(AClientes);
+										if AClientes = 'B' then MClientes := False;
+										if AClientes = 'A' then 
+										begin
+										MClientes:= true;
+										writeln('Ingrese el numero de personas que desea agregar al registro');
+										writeln;
+										readln(n2);
+										end;
+										until MClientes = false;
+										for j:= 1 to n + n2 do
 										begin
 										GRegistro;
 										end;
-										end;
-										until MDatos = false;
 									end;
 								
 								'c':
@@ -1087,70 +1132,13 @@ BEGIN
 										readln;
 										clrscr;
 										repeat
-										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
-										readln(SDatos);
-										if SDatos = 'B' then MDatos := False;
-										if SDatos = 'A' then 
+										if MClientes = true then
 										begin
-										MDatos := true;
-										clrscr;
-										writeln('Ingrese el numero del cliente que desee visualizar los datos');
-										writeln;
-										readln(i);
-										clrscr;
-										gotoxy(49,1);writeln('-----------------------');
-										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
-										gotoxy(49,3);writeln('-----------------------');
-										gotoxy(30,4);writeln('===========================================================');
-										gotoxy(30,6);writeln(Dregistrar[i].nombre);
-										gotoxy(30,8);writeln('===========================================================');
-										gotoxy(30,10);writeln(Dregistrar[i].apellido);
-										gotoxy(30,12);writeln('===========================================================');
-										gotoxy(30,14);writeln(Dregistrar[i].cedula);
-										gotoxy(30,16);writeln('===========================================================');
-										gotoxy(30,18);writeln(Dregistrar[i].telefono);
-										gotoxy(30,20);writeln('===========================================================');
-										gotoxy(30,22);writeln(Dregistrar[i].email);
-										gotoxy(30,24);writeln('===========================================================');
-										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
-										gotoxy(30,28);writeln('===========================================================');
-										writeln ('El monto total por la estadia es de: ', PTotal,'$');
-										readln();
-										for j:= 1 to n do
+										for i:= n + 1 to n + n2 do
 										begin
-										GRegistro;
+										RCliente;
 										end;
 										end;
-										until MDatos = false;
-									end;
-								
-								'd':
-									begin
-									clrscr;
-										gotoxy(30,1);writeln ('==============================================');
-										gotoxy(30,2);writeln ('Usted ha seleccionado la SUITE - 300$ la noche');
-										gotoxy(30,3);writeln ('==============================================');
-										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln('Cálida y confortable habitación decorada con un estilo vanguardista, 100% libre de humo, Cama Lidotel Royal King, con reloj despertador, TV 32” HD Plasma con cable, 2 banyos con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio y area separada con 2 sofa-cama individuales.');
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln;
-										writeln ('Incluye: ');
-										writeln ('///////');
-										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 300 * (DEstadia - 1);
-										writeln;
-										writeln ('///////////////////////////////');
-										writeln ('Presione [enter] para continuar');
-										writeln ('///////////////////////////////');
-										readln;
-										clrscr;
 										repeat
 										clrscr;
 										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
@@ -1184,14 +1172,114 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
-										for j:= 1 to n do
+										end;
+										until MDatos = false;
+										writeln('¿Desea agregar a mas personas dentro del registro?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(AClientes);
+										if AClientes = 'B' then MClientes := False;
+										if AClientes = 'A' then 
+										begin
+										MClientes:= true;
+										writeln('Ingrese el numero de personas que desea agregar al registro');
+										writeln;
+										readln(n2);
+										end;
+										until MClientes = false;
+										for j:= 1 to n + n2 do
+										begin
+										GRegistro;
+										end;
+									end;
+								
+								'd':
+									begin
+									clrscr;
+										gotoxy(30,1);writeln ('==============================================');
+										gotoxy(30,2);writeln ('Usted ha seleccionado la SUITE - 300$ la noche');
+										gotoxy(30,3);writeln ('==============================================');
+										writeln;
+										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln('Cálida y confortable habitación decorada con un estilo vanguardista, 100% libre de humo, Cama Lidotel Royal King, con reloj despertador, TV 32” HD Plasma con cable, 2 banyos con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio y area separada con 2 sofa-cama individuales.');
+										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln;
+										writeln ('Incluye: ');
+										writeln ('///////');
+										writeln;
+										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										PTotal:= 300 * (DEstadia - 1);
+										writeln;
+										writeln ('///////////////////////////////');
+										writeln ('Presione [enter] para continuar');
+										writeln ('///////////////////////////////');
+										readln;
+										clrscr;
+										repeat
+										if MClientes = true then
+										begin
+										for i:= n + 1 to n + n2 do
+										begin
+										RCliente;
+										end;
+										end;
+										repeat
+										clrscr;
+										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(SDatos);
+										if SDatos = 'B' then MDatos := False;
+										if SDatos = 'A' then 
+										begin
+										MDatos := true;
+										clrscr;
+										writeln('Ingrese el numero del cliente que desee visualizar los datos');
+										writeln;
+										readln(i);
+										clrscr;
+										gotoxy(49,1);writeln('-----------------------');
+										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
+										gotoxy(49,3);writeln('-----------------------');
+										gotoxy(30,4);writeln('===========================================================');
+										gotoxy(30,6);writeln(Dregistrar[i].nombre);
+										gotoxy(30,8);writeln('===========================================================');
+										gotoxy(30,10);writeln(Dregistrar[i].apellido);
+										gotoxy(30,12);writeln('===========================================================');
+										gotoxy(30,14);writeln(Dregistrar[i].cedula);
+										gotoxy(30,16);writeln('===========================================================');
+										gotoxy(30,18);writeln(Dregistrar[i].telefono);
+										gotoxy(30,20);writeln('===========================================================');
+										gotoxy(30,22);writeln(Dregistrar[i].email);
+										gotoxy(30,24);writeln('===========================================================');
+										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										gotoxy(30,28);writeln('===========================================================');
+										writeln ('El monto total por la estadia es de: ', PTotal,'$');
+										readln();
+										
+										
+									end;
+									until MDatos = false;
+									writeln('¿Desea agregar a mas personas dentro del registro?');
+										writeln('A-Si');
+										writeln('B-No');
+										readln(AClientes);
+										if AClientes = 'B' then MClientes := False;
+										if AClientes = 'A' then 
+										begin
+										MClientes:= true;
+										writeln('Ingrese el numero de personas que desea agregar al registro');
+										writeln;
+										readln(n2);
+										end;
+										until MClientes = false;
+									for j:= 1 to n do
 										begin
 										GRegistro;
 										end;
 										end;
-										until MDatos = false;
-									end;
-								
 								end; // end del case de las habitaciones
 							end;// end de la primera opcion del case de los tipos de reservaciones
 							
