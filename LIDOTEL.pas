@@ -720,6 +720,10 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										for j:= 1 to n do
+										begin
+										GRegistro;
+										end;
 										end;
 										until MDatos= false;
 									end;
@@ -783,6 +787,10 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										for j:= 1 to n do
+										begin
+										GRegistro;
+										end;
 										end;
 										until MDatos= false;
 									end;
@@ -846,7 +854,10 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
-										
+										for j:= 1 to n do
+										begin
+										GRegistro;
+										end;
 									end;
 									until MDatos = false;
 							
@@ -978,12 +989,12 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
-										end;
-										until MDatos = false;
-										for i:= 1 to n do
+										for j:= 1 to n do
 										begin
 										GRegistro;
 										end;
+										end;
+										until MDatos = false;
 									end;
 								
 								'b':
@@ -1043,6 +1054,10 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										for j:= 1 to n do
+										begin
+										GRegistro;
+										end;
 										end;
 										until MDatos = false;
 									end;
@@ -1104,6 +1119,10 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										for j:= 1 to n do
+										begin
+										GRegistro;
+										end;
 										end;
 										until MDatos = false;
 									end;
@@ -1165,6 +1184,10 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										for j:= 1 to n do
+										begin
+										GRegistro;
+										end;
 										end;
 										until MDatos = false;
 									end;
