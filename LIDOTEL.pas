@@ -183,7 +183,7 @@ begin
 							  begin
 							  clrscr;
 								Seek(archivo, FileSize(archivo));
-								Write(archivo, DCliente[i]);
+								Write(archivo, DCliente[j]);
 								gotoxy(20,10);writeln('============================');
 								gotoxy(20,11);Writeln('Registro realizado con exito');
 								gotoxy(20,12);writeln('============================');
@@ -298,6 +298,7 @@ BEGIN
 					case reservacion of
 						'a': 
 							begin
+								j:=1;
 								i:=1;
 								n:=1;
 								clrscr;
@@ -313,7 +314,7 @@ BEGIN
 								gotoxy(20,21);writeln ('========================');
 								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
 								readln(vali);
-								if not TryStrToInt(vali, DCliente[i].TDestadia) then
+								if not TryStrToInt(vali, DCliente[1].TDestadia) then
 								  begin
 									WriteLn('Entrada inválida. Solo se permiten números enteros.');
 									valvali:= true;
@@ -387,11 +388,11 @@ BEGIN
 										gotoxy(30,20);writeln('===========================================================');
 										gotoxy(30,22);writeln(Dregistrar[i].email);
 										gotoxy(30,24);writeln('===========================================================');
-										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[1].TDestadia);
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
-										
+										GRegistro;
 										
 									end;
 								
@@ -433,10 +434,11 @@ BEGIN
 										gotoxy(30,20);writeln('===========================================================');
 										gotoxy(30,22);writeln(Dregistrar[i].email);
 										gotoxy(30,24);writeln('===========================================================');
-										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[1].TDestadia);
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										GRegistro;
 									end;
 								
 								'c':
@@ -477,10 +479,11 @@ BEGIN
 										gotoxy(30,20);writeln('===========================================================');
 										gotoxy(30,22);writeln(Dregistrar[i].email);
 										gotoxy(30,24);writeln('===========================================================');
-										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[1].TDestadia);
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										GRegistro;
 									end;
 								
 								'd':
@@ -521,10 +524,11 @@ BEGIN
 										gotoxy(30,20);writeln('===========================================================');
 										gotoxy(30,22);writeln(Dregistrar[i].email);
 										gotoxy(30,24);writeln('===========================================================');
-										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[1].TDestadia);
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										GRegistro;
 									end;
 								
 								end; // end del case de las habitaciones
@@ -546,7 +550,7 @@ BEGIN
 								gotoxy(20,21);writeln ('========================');
 								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
 								readln(vali);
-								if not TryStrToInt(vali, DCliente[i].TDestadia) then
+								if not TryStrToInt(vali, DCliente[1].TDestadia) then
 								  begin
 									WriteLn('Entrada inválida. Solo se permiten números enteros.');
 									valvali:= true;
@@ -554,10 +558,9 @@ BEGIN
 								  else 
 								  valvali:=false;
 								 until valvali = false; 
-								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
-								for i:= 1 to n do
+								for j:=1 to n do
 								begin
-								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
+								DRegistrar[j].TDestadia := DCliente[1].TDestadia;
 								end;
 								clrscr;
 								writeln;
@@ -650,6 +653,10 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										for j:=1 to n do
+										begin
+										GRegistro;
+										end;
 										end;
 										until MDatos= false;
 									end;
@@ -875,7 +882,7 @@ BEGIN
 								gotoxy(20,21);writeln ('========================');
 								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
 								readln(vali);
-								if not TryStrToInt(vali, DCliente[i].TDestadia) then
+								if not TryStrToInt(vali, DCliente[1].TDestadia) then
 								  begin
 									WriteLn('Entrada inválida. Solo se permiten números enteros.');
 									valvali:= true;
@@ -883,9 +890,9 @@ BEGIN
 								  else 
 								  valvali:=false;
 								 until valvali = false; 
-								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
+								for j:=1 to n do
 								begin
-								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
+								DRegistrar[j].TDestadia := DCliente[1].TDestadia;
 								end;
 								clrscr;
 								writeln;
