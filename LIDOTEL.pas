@@ -67,8 +67,8 @@ begin
 			end;
 			end;
 	Reset(archivo);
-	
-	gotoxy(30,15);writeln ('Comenzando el proceso de registro...');
+	clrscr;
+	gotoxy(35,16);writeln ('Comenzando el proceso de registro...');
 	delay(2000);
 	read;
 			clrscr;
@@ -511,12 +511,20 @@ BEGIN
 								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
 								end;
 								clrscr;
-								writeln ('Seleccione el tipo de habitacion');
 								writeln;
+								writeln ('--------------------------------');
+								writeln ('Seleccione el tipo de habitacion');
+								writeln ('--------------------------------');
+								writeln;
+								writeln ('');
 								writeln('a-FAMILY ROOM');
+								writeln ('-----------------------------');
 								writeln ('b-SENCILLA');
+								writeln ('--------------------------');
 								writeln ('c-DOBLE');
+								writeln ('-----------------------');
 								writeln ('d-SUITE');
+								writeln ('--------------------');
 								writeln;
 								repeat
 									begin
@@ -531,48 +539,66 @@ BEGIN
 								case habitaciones of
 								'a':
 									begin
-										writeln ('Usted ha seleccionado la FAMILY ROOM - 200$ la noche.');
+									clrscr;
+										gotoxy(30,1);writeln ('====================================================');
+										gotoxy(30,2);writeln ('Usted ha seleccionado la FAMILY ROOM - 200$ la noche');
+										gotoxy(30,3);writeln ('====================================================');
 										writeln;
-										writeln ('Calida y confortable habitacion decorada con un estilo vanguardista, 100% libre de humo,cama Lidotel Royal King, con reloj despertador TV 32” HD Plasma con cable, banyo con  ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio, una habitacion separada con 2 camas full, banyo con ducha.');							
+										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('Calida y confortable habitacion decorada con un estilo vanguardista, 100% libre de humo,cama Lidotel Royal King, con reloj despertador TV 32 HD Plasma con cable, banyo con  ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio, una habitacion separada con 2 camas full, banyo con ducha.');							
 										writeln;
+										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Incluye: ');
+										writeln ('///////');
 										writeln;
+										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										PTotal:= 200 * (DEstadia - 1);
 										writeln;
+										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
+										writeln ('///////////////////////////////');
 										readln;
 										clrscr;
 										repeat
 										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
+										gotoxy(30,1);writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(20,2);writeln ('========================================================================================');
+										gotoxy(55,5);writeln('A-Si');
+										gotoxy(50,6);writeln ('------------------');
+										gotoxy(55,7);writeln('B-No');
 										readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
 										MDatos := true;
 										clrscr;
-										writeln('Ingrese el numero de acuerdo a los datos que desea visualizar');
+										writeln('////Ingrese el numero de acuerdo a los datos que desea visualizar');
+										writeln ('------------------');
 										writeln('1- Cliente principal');
+										writeln ('------------------');
 										writeln('2- Acompanante');
+										writeln ('------------------');
 										writeln;
 										readln(i);
-										writeln('DATOS DE LA RESERVACION');
-										writeln('===========================================================');
-										writeln(Dregistrar[i].nombre);
-										writeln('===========================================================');
-										writeln(Dregistrar[i].apellido);
-										writeln('===========================================================');
-										writeln(Dregistrar[i].cedula);
-										writeln('===========================================================');
-										writeln(Dregistrar[i].telefono);
-										writeln('===========================================================');
-										writeln(Dregistrar[i].email);
-										writeln('===========================================================');
-										writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
-										writeln('===========================================================');
+										clrscr;
+										gotoxy(49,1);writeln('-----------------------');
+										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
+										gotoxy(49,3);writeln('-----------------------');
+										gotoxy(30,4);writeln('===========================================================');
+										gotoxy(30,6);writeln(Dregistrar[i].nombre);
+										gotoxy(30,8);writeln('===========================================================');
+										gotoxy(30,10);writeln(Dregistrar[i].apellido);
+										gotoxy(30,12);writeln('===========================================================');
+										gotoxy(30,14);writeln(Dregistrar[i].cedula);
+										gotoxy(30,16);writeln('===========================================================');
+										gotoxy(30,18);writeln(Dregistrar[i].telefono);
+										gotoxy(30,20);writeln('===========================================================');
+										gotoxy(30,22);writeln(Dregistrar[i].email);
+										gotoxy(30,24);writeln('===========================================================');
+										gotoxy(30,26);writeln('Los dias de estadia son: ' ,Dregistrar[i].TDestadia);
+										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										end;
