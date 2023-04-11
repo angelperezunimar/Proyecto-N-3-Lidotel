@@ -11,14 +11,14 @@ type
 			nombre: string;
 			apellido: string;
 			cedula: string[10];
-			telefono: string;
+			telefono: longint;
 			email: string;
 			TDestadia: longint;
 		end;
 
 {Se empiezan inicializando variables necesarias para el programa}
 var  menu, reservacion, habitaciones,SDatos,vali,AClientes,CRegistro,CTDatos: string;
-     x1, cod1, x2, cod2, x3, cod3,x4, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2,n3: longint;
+     x1, cod1, x2, cod2, x3, cod3,x4,cod4,x5,cod5,x6,cod6,x7,cod7,x8,cod8, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2,n3: longint;
      ECliente: string[10];
      DCliente, DRegistrar: array of datos;
 	 archivo1: text;
@@ -74,21 +74,36 @@ begin
 					writeln;
 					writeln ('////Por favor favor ingrese los datos del cliente numero ', i,': ');
 					writeln;
-							gotoxy(20,6);writeln ('========================');
-							gotoxy(20,7);write ('Nombre: ');
-							
-							readln (DCliente[i].nombre);
+							repeat
+								gotoxy(20,6);writeln ('========================');
+								gotoxy(20,7);write ('Nombre: ');
+								begin
+									repeat
+										begin
+											readln (DCliente[i].nombre);
+										end;
+									until DCliente[i].nombre <> '';
+									val (DCliente[i].nombre, x5, cod5);
+								end;
+							until cod5 > 0;
 							DRegistrar[i].nombre := DCliente[i].nombre;
 							writeln;
-							gotoxy(20,9);writeln ('========================');
-							gotoxy(20,10);write ('Apellido: ');
-							
-							readln (DCliente[i].apellido);
+							repeat
+								gotoxy(20,9);writeln ('========================');
+								gotoxy(20,10);write ('Apellido: ');
+								begin
+									repeat
+										begin
+											readln (DCliente[i].apellido);
+										end;
+									until DCliente[i].apellido <> '';
+									val (DCliente[i].apellido, x6, cod6);
+								end;
+							until cod6 > 0;
 							DRegistrar[i].apellido := DCliente[i].apellido;
 							writeln;
 							gotoxy(20,12);writeln ('========================');
 							gotoxy(20,13);write ('Cedula de identidad: ');
-							
 							readln (DCliente[i].cedula);
 							DRegistrar[i].cedula := DCliente[i].cedula;
 							writeln;
@@ -98,10 +113,18 @@ begin
 							readln (DCliente[i].email);
 							DRegistrar[i].email := DCliente[i].email;
 							writeln;
+							repeat
 							gotoxy(20,18);writeln ('========================');
 							gotoxy(20,19);write ('Numero de Telefono: ');
-							
-							readln (DCliente[i].telefono);
+							readln (vali);
+							if not TryStrToInt(vali, DCliente[i].telefono ) then
+								  begin
+									WriteLn('Entrada inválida. Solo se permiten números enteros.');
+									valvali:= true;
+								  end
+								  else 
+								  valvali:=false;
+							until valvali = false;
 							DRegistrar[i].telefono := DCliente[i].telefono;
 							writeln; 
 							
@@ -412,18 +435,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -431,8 +480,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -441,8 +501,19 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[1].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
@@ -516,18 +587,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -535,8 +632,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -545,16 +653,29 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[1].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
 										
 										end;
 										if CRegistro = 'B' then CDatos := false;
+										
 										until CDatos = false;
 										GRegistro;
+										
 									end;
 								
 								'c':
@@ -618,18 +739,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -637,8 +784,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -647,8 +805,19 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[1].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
@@ -658,6 +827,7 @@ BEGIN
 										
 										until CDatos = false;
 										GRegistro;
+										
 									end;
 								
 								'd':
@@ -721,18 +891,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -740,8 +936,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -750,17 +957,30 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[1].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
 										
 										end;
-										if CRegistro = 'B' then CDatos := false;
+										if CRegistro = 'B' then 
+										CDatos := false;
 										
 										until CDatos = false;
 										GRegistro;
+										
 									end;
 								
 								end; // end del case de las habitaciones
@@ -859,6 +1079,7 @@ BEGIN
 										repeat 
 										MDatos := true;
 										clrscr;
+										repeat
 										writeln('////Ingrese el numero de acuerdo a los datos que desea visualizar');
 										writeln ('------------------');
 										writeln('1- Cliente principal');
@@ -866,7 +1087,15 @@ BEGIN
 										writeln('2- Acompanante');
 										writeln ('------------------');
 										writeln;
-										readln(i);
+										readln (vali);
+												if not TryStrToInt(vali, i ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										clrscr;
 										gotoxy(49,1);writeln('-----------------------');
 										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
@@ -904,18 +1133,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -923,8 +1178,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -933,8 +1199,19 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[i].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
@@ -988,11 +1265,20 @@ BEGIN
 										repeat
 										MDatos := true;
 										clrscr;
+										repeat
 										writeln('Ingrese el numero de acuerdo a los datos que desea visualizar');
 										writeln('1- Cliente principal');
 										writeln('2- Acompanante');
 										writeln;
-										readln(i);
+										readln (vali);
+												if not TryStrToInt(vali, i ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										clrscr;
 										gotoxy(49,1);writeln('-----------------------');
 										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
@@ -1030,18 +1316,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -1049,8 +1361,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -1059,8 +1382,19 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[i].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
@@ -1112,11 +1446,20 @@ BEGIN
 										repeat
 										MDatos := true;
 										clrscr;
+										repeat
 										writeln('Ingrese el numero de acuerdo a los datos que desea visualizar');
 										writeln('1- Cliente principal');
 										writeln('2- Acompanante');
 										writeln;
-										readln(i);
+										readln (vali);
+												if not TryStrToInt(vali, i ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										clrscr;
 										gotoxy(49,1);writeln('-----------------------');
 										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
@@ -1154,18 +1497,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -1173,8 +1542,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -1183,8 +1563,19 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[i].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
@@ -1236,11 +1627,20 @@ BEGIN
 										repeat
 										MDatos := true;
 										clrscr;
+										repeat
 										writeln('Ingrese el numero de acuerdo a los datos que desea visualizar');
 										writeln('1- Cliente principal');
 										writeln('2- Acompanante');
 										writeln;
-										readln(i);
+										readln (vali);
+												if not TryStrToInt(vali, i ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										clrscr;
 										gotoxy(49,1);writeln('-----------------------');
 										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
@@ -1278,18 +1678,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -1297,8 +1723,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -1307,8 +1744,19 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[i].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
@@ -1438,9 +1886,18 @@ BEGIN
 										repeat
 										MDatos := true;
 										clrscr;
-										writeln('Ingrese el numero del cliente que desee visualizar los datos');
-										writeln;
-										readln(i);
+										repeat
+											writeln('Ingrese el numero del cliente que desee visualizar los datos');
+											writeln;
+											readln (vali);
+												if not TryStrToInt(vali, i ) then
+													begin
+													WriteLn('Entrada inválida. Solo se permiten números enteros.');
+													valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										clrscr;
 										gotoxy(49,1);writeln('-----------------------');
 										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
@@ -1478,18 +1935,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -1497,8 +1980,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -1507,14 +2001,26 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[i].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
 										
 										end;
-										if CRegistro = 'B' then CDatos := false;
+										if CRegistro = 'B' then 
+										CDatos := false;
 										until CDatos = false;
 										end;
 										until MDatos = false;
@@ -1526,8 +2032,17 @@ BEGIN
 										if AClientes = 'A' then 
 										begin
 										MClientes:= true;
+										repeat
 										writeln('Ingrese el numero de personas que desea agregar al registro');
-										readln(n2);
+										readln (vali);
+												if not TryStrToInt(vali, n2 ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										writeln;
 										end;
 										until MClientes = false;
@@ -1582,9 +2097,18 @@ BEGIN
 										repeat
 										MDatos := true;
 										clrscr;
+										repeat
 										writeln('Ingrese el numero del cliente que desee visualizar los datos');
 										writeln;
-										readln(i);
+										readln (vali);
+												if not TryStrToInt(vali, i ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										clrscr;
 										gotoxy(49,1);writeln('-----------------------');
 										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
@@ -1622,18 +2146,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -1641,8 +2191,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -1651,14 +2212,26 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[i].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
 										
 										end;
-										if CRegistro = 'B' then CDatos := false;
+										if CRegistro = 'B' then 
+										CDatos := false;
 										until CDatos = false;
 										clrscr;
 										end;
@@ -1671,9 +2244,18 @@ BEGIN
 										if AClientes = 'A' then 
 										begin
 										MClientes:= true;
+										repeat
 										writeln('Ingrese el numero de personas que desea agregar al registro');
 										writeln;
-										readln(n2);
+										readln (vali);
+												if not TryStrToInt(vali, n2 ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										end;
 										until MClientes = false;
 										for j:= 1 to n + n2 do
@@ -1726,9 +2308,18 @@ BEGIN
 										repeat
 										MDatos := true;
 										clrscr;
+										repeat
 										writeln('Ingrese el numero del cliente que desee visualizar los datos');
 										writeln;
-										readln(i);
+										readln (vali);
+												if not TryStrToInt(vali, i ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										clrscr;
 										gotoxy(49,1);writeln('-----------------------');
 										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
@@ -1766,18 +2357,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -1785,8 +2402,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -1795,14 +2423,26 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[i].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
 										
 										end;
-										if CRegistro = 'B' then CDatos := false;
+										if CRegistro = 'B' then 
+										CDatos := false;
 										until CDatos = false;
 										end;
 										until MDatos = false;
@@ -1816,10 +2456,22 @@ BEGIN
 										MClientes:= true;
 										MDatos := true;
 										CDatos := true;
+										repeat
 										writeln('Ingrese el numero de personas que desea agregar al registro');
 										writeln;
-										readln(n2);
+										readln (vali);
+												if not TryStrToInt(vali, n2 ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+												
+										
+										until valvali = false;
 										end;
+										
 										until MClientes = false;
 										for j:= 1 to n + n2 do
 										begin
@@ -1871,9 +2523,20 @@ BEGIN
 										repeat
 										MDatos := true;
 										clrscr;
+										repeat
 										writeln('Ingrese el numero del cliente que desee visualizar los datos');
 										writeln;
-										readln(i);
+										readln (vali);
+												if not TryStrToInt(vali, i ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
+										
+										
 										clrscr;
 										gotoxy(49,1);writeln('-----------------------');
 										gotoxy(49,2);writeln('DATOS DE LA RESERVACION');
@@ -1911,18 +2574,44 @@ BEGIN
 										writeln ('D-Telefono');
 										writeln ('E-Email');
 										writeln ('F-Dias de Estadia');
-										readln(CTDatos);
+										repeat
+											begin
+												repeat
+													begin
+														readln(CTDatos);
+													end;
+												until (CTDatos = 'A') or (CTDatos = 'B') or (CTDatos = 'C') or (CTDatos = 'D') or (CTDatos = 'E') or (CTDatos = 'F');
+												Val (CTDatos,x4,cod4); 
+											end;
+										until cod4 > 0;readln(CTDatos);
 										case CTDatos of
 										
 										'A':begin
-											writeln('Ingrese el nuevo nombre');
-											Readln(Dregistrar[i].nombre);
-										
+												repeat
+													begin
+														writeln('Ingrese el nuevo nombre');
+														repeat
+															begin
+																Readln(Dregistrar[i].nombre);
+															end;
+														until Dregistrar[i].nombre <> '';
+														val (Dregistrar[i].nombre, x7, cod7);
+													end;
+												until cod7>0;
 											end;
 											
 										'B':begin
-											writeln('Ingrese el nuevo apellido');
-											Readln(Dregistrar[i].apellido);
+												repeat
+													begin
+														writeln('Ingrese el nuevo apellido');
+														repeat
+															begin
+																Readln(Dregistrar[i].apellido);
+															end;
+														until Dregistrar[i].apellido <> '';
+														val (Dregistrar[i].apellido,x8,cod8);
+													end;
+												until cod8>0;
 											end;
 										'C':begin
 											writeln('Ingrese el nuevo cedula');
@@ -1930,8 +2619,19 @@ BEGIN
 											end;
 								
 										'D':begin
-											writeln('Ingrese el nuevo telefono');
-											Readln(Dregistrar[i].telefono);
+												repeat
+													begin
+														writeln('Ingrese el nuevo telefono');
+														readln (vali);
+														if not TryStrToInt(vali, Dregistrar[i].telefono ) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;	
+												until valvali = false; 
 											end;
 											
 										'E':begin
@@ -1940,14 +2640,26 @@ BEGIN
 											end;
 											
 										'F':begin
-											writeln('Ingrese la cantidad de dias de su estadia');
-											Readln(Dregistrar[i].TDestadia);
+												repeat
+													begin
+														writeln('Ingrese la cantidad de dias de su estadia');
+														readln(vali);
+														if not TryStrToInt(vali, Dregistrar[1].TDestadia) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else 
+														valvali:=false;
+													end;
+												until valvali = false; 
 											end;
 										
 										end;
 										
 										end;
-										if CRegistro = 'B' then CDatos := false;
+										if CRegistro = 'B' then 
+										CDatos := false;
 										until CDatos = false;
 										
 									end;
@@ -1960,9 +2672,18 @@ BEGIN
 										if AClientes = 'A' then 
 										begin
 										MClientes:= true;
+										repeat
 										writeln('Ingrese el numero de personas que desea agregar al registro');
 										writeln;
-										readln(n2);
+										readln (vali);
+												if not TryStrToInt(vali, n2 ) then
+													begin
+														WriteLn('Entrada inválida. Solo se permiten números enteros.');
+														valvali:= true;
+													end
+												else 
+												valvali:=false;
+										until valvali = false;
 										end;
 										until MClientes = false;
 									for j:= 1 to n do
