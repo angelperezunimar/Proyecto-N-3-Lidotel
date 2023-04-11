@@ -7,7 +7,6 @@ CRT,SysUtils;
 
 //Se declaran tipos necesarios para la organizacion y el desarrollo del programa
 type
-    TipoReservacion = (Individual, Acompanado, GrupoFamilia);
 	datos = record
 			nombre: string;
 			apellido: string;
@@ -19,7 +18,7 @@ type
 
 {Se empiezan inicializando variables necesarias para el programa}
 var  menu, reservacion, habitaciones,SDatos,vali,AClientes,CRegistro,CTDatos: string;
-     x1, cod1, x2, cod2, x3, cod3,x4, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2: longint;
+     x1, cod1, x2, cod2, x3, cod3,x4, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2,n3: longint;
      ECliente: string[10];
      DCliente, DRegistrar: array of datos;
 	 archivo1: text;
@@ -29,7 +28,7 @@ var  menu, reservacion, habitaciones,SDatos,vali,AClientes,CRegistro,CTDatos: st
 	//Procedimiento para el registro del cliente
 Procedure RCliente;
 begin
-	
+
 	SetLength(DCliente, (n + n2));
 	SetLength(DRegistrar, (n + n2));
 	
@@ -1338,7 +1337,7 @@ BEGIN
 								repeat
 								writeln ('Ingrese el numero de personas que desea registrar en la reservacion');
 								readln (vali);
-								if not TryStrToInt(vali, i) then
+								if not TryStrToInt(vali, n) then
 								  begin
 									WriteLn('Entrada inválida. Solo se permiten números enteros.');
 									valvali:=true;
@@ -1346,7 +1345,6 @@ BEGIN
 								  else 
 								  valvali:=false;
 								 until valvali = false; 
-								n:=i;
 								writeln;
 								for i:= 1 to n do
 								begin
@@ -1423,7 +1421,7 @@ BEGIN
 										repeat
 										if MClientes = true then
 										begin
-										for i:= n + 1 to n + n2 do
+										for i:= (n + 1) to (n + n2) do
 										begin
 										RCliente;
 										end;
@@ -1437,6 +1435,7 @@ BEGIN
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
+										repeat
 										MDatos := true;
 										clrscr;
 										writeln('Ingrese el numero del cliente que desee visualizar los datos');
@@ -1461,6 +1460,62 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										clrscr;
+										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln;
+										writeln('A-Si');
+										writeln ('B-No');
+										readln(CRegistro);
+										if CRegistro = 'A' then
+										begin
+										MDatos := true;
+										CDatos := true;
+										writeln ('¿Que dato desea cambiar?');
+										writeln;
+										writeln ('A-Nombre');
+										writeln ('B-Apellido');
+										writeln ('C-Cedula');
+										writeln ('D-Telefono');
+										writeln ('E-Email');
+										writeln ('F-Dias de Estadia');
+										readln(CTDatos);
+										case CTDatos of
+										
+										'A':begin
+											writeln('Ingrese el nuevo nombre');
+											Readln(Dregistrar[i].nombre);
+										
+											end;
+											
+										'B':begin
+											writeln('Ingrese el nuevo apellido');
+											Readln(Dregistrar[i].apellido);
+											end;
+										'C':begin
+											writeln('Ingrese el nuevo cedula');
+											Readln(Dregistrar[i].cedula);
+											end;
+								
+										'D':begin
+											writeln('Ingrese el nuevo telefono');
+											Readln(Dregistrar[i].telefono);
+											end;
+											
+										'E':begin
+											writeln('Ingrese el nuevo email');
+											Readln(Dregistrar[i].email);
+											end;
+											
+										'F':begin
+											writeln('Ingrese la cantidad de dias de su estadia');
+											Readln(Dregistrar[i].TDestadia);
+											end;
+										
+										end;
+										
+										end;
+										if CRegistro = 'B' then CDatos := false;
+										until CDatos = false;
 										end;
 										until MDatos = false;
 										writeln('¿Desea agregar a mas personas dentro del registro?');
@@ -1472,8 +1527,8 @@ BEGIN
 										begin
 										MClientes:= true;
 										writeln('Ingrese el numero de personas que desea agregar al registro');
-										writeln;
 										readln(n2);
+										writeln;
 										end;
 										until MClientes = false;
 										for j:= 1 to n do
@@ -1510,7 +1565,7 @@ BEGIN
 										repeat
 										if MClientes = true then
 										begin
-										for i:= n + 1 to n + n2 do
+										for i:= (n + 1) to (n + n2) do
 										begin
 										RCliente;
 										end;
@@ -1524,6 +1579,7 @@ BEGIN
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
+										repeat
 										MDatos := true;
 										clrscr;
 										writeln('Ingrese el numero del cliente que desee visualizar los datos');
@@ -1548,6 +1604,62 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										clrscr;
+										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln;
+										writeln('A-Si');
+										writeln ('B-No');
+										readln(CRegistro);
+										if CRegistro = 'A' then
+										begin
+										MDatos := true;
+										CDatos := true;
+										writeln ('¿Que dato desea cambiar?');
+										writeln;
+										writeln ('A-Nombre');
+										writeln ('B-Apellido');
+										writeln ('C-Cedula');
+										writeln ('D-Telefono');
+										writeln ('E-Email');
+										writeln ('F-Dias de Estadia');
+										readln(CTDatos);
+										case CTDatos of
+										
+										'A':begin
+											writeln('Ingrese el nuevo nombre');
+											Readln(Dregistrar[i].nombre);
+										
+											end;
+											
+										'B':begin
+											writeln('Ingrese el nuevo apellido');
+											Readln(Dregistrar[i].apellido);
+											end;
+										'C':begin
+											writeln('Ingrese el nuevo cedula');
+											Readln(Dregistrar[i].cedula);
+											end;
+								
+										'D':begin
+											writeln('Ingrese el nuevo telefono');
+											Readln(Dregistrar[i].telefono);
+											end;
+											
+										'E':begin
+											writeln('Ingrese el nuevo email');
+											Readln(Dregistrar[i].email);
+											end;
+											
+										'F':begin
+											writeln('Ingrese la cantidad de dias de su estadia');
+											Readln(Dregistrar[i].TDestadia);
+											end;
+										
+										end;
+										
+										end;
+										if CRegistro = 'B' then CDatos := false;
+										until CDatos = false;
 										clrscr;
 										end;
 										until MDatos = false;
@@ -1597,7 +1709,7 @@ BEGIN
 										repeat
 										if MClientes = true then
 										begin
-										for i:= n + 1 to n + n2 do
+										for i:= (n + 1) to (n + n2) do
 										begin
 										RCliente;
 										end;
@@ -1611,6 +1723,7 @@ BEGIN
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
+										repeat
 										MDatos := true;
 										clrscr;
 										writeln('Ingrese el numero del cliente que desee visualizar los datos');
@@ -1635,6 +1748,62 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										clrscr;
+										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln;
+										writeln('A-Si');
+										writeln ('B-No');
+										readln(CRegistro);
+										if CRegistro = 'A' then
+										begin
+										MDatos := true;
+										CDatos := true;
+										writeln ('¿Que dato desea cambiar?');
+										writeln;
+										writeln ('A-Nombre');
+										writeln ('B-Apellido');
+										writeln ('C-Cedula');
+										writeln ('D-Telefono');
+										writeln ('E-Email');
+										writeln ('F-Dias de Estadia');
+										readln(CTDatos);
+										case CTDatos of
+										
+										'A':begin
+											writeln('Ingrese el nuevo nombre');
+											Readln(Dregistrar[i].nombre);
+										
+											end;
+											
+										'B':begin
+											writeln('Ingrese el nuevo apellido');
+											Readln(Dregistrar[i].apellido);
+											end;
+										'C':begin
+											writeln('Ingrese el nuevo cedula');
+											Readln(Dregistrar[i].cedula);
+											end;
+								
+										'D':begin
+											writeln('Ingrese el nuevo telefono');
+											Readln(Dregistrar[i].telefono);
+											end;
+											
+										'E':begin
+											writeln('Ingrese el nuevo email');
+											Readln(Dregistrar[i].email);
+											end;
+											
+										'F':begin
+											writeln('Ingrese la cantidad de dias de su estadia');
+											Readln(Dregistrar[i].TDestadia);
+											end;
+										
+										end;
+										
+										end;
+										if CRegistro = 'B' then CDatos := false;
+										until CDatos = false;
 										end;
 										until MDatos = false;
 										writeln('¿Desea agregar a mas personas dentro del registro?');
@@ -1645,6 +1814,8 @@ BEGIN
 										if AClientes = 'A' then 
 										begin
 										MClientes:= true;
+										MDatos := true;
+										CDatos := true;
 										writeln('Ingrese el numero de personas que desea agregar al registro');
 										writeln;
 										readln(n2);
@@ -1683,7 +1854,7 @@ BEGIN
 										repeat
 										if MClientes = true then
 										begin
-										for i:= n + 1 to n + n2 do
+										for i:= (n + 1) to (n + n2) do
 										begin
 										RCliente;
 										end;
@@ -1697,6 +1868,7 @@ BEGIN
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
+										repeat
 										MDatos := true;
 										clrscr;
 										writeln('Ingrese el numero del cliente que desee visualizar los datos');
@@ -1721,6 +1893,62 @@ BEGIN
 										gotoxy(30,28);writeln('===========================================================');
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
+										clrscr;
+										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln;
+										writeln('A-Si');
+										writeln ('B-No');
+										readln(CRegistro);
+										if CRegistro = 'A' then
+										begin
+										MDatos := true;
+										CDatos := true;
+										writeln ('¿Que dato desea cambiar?');
+										writeln;
+										writeln ('A-Nombre');
+										writeln ('B-Apellido');
+										writeln ('C-Cedula');
+										writeln ('D-Telefono');
+										writeln ('E-Email');
+										writeln ('F-Dias de Estadia');
+										readln(CTDatos);
+										case CTDatos of
+										
+										'A':begin
+											writeln('Ingrese el nuevo nombre');
+											Readln(Dregistrar[i].nombre);
+										
+											end;
+											
+										'B':begin
+											writeln('Ingrese el nuevo apellido');
+											Readln(Dregistrar[i].apellido);
+											end;
+										'C':begin
+											writeln('Ingrese el nuevo cedula');
+											Readln(Dregistrar[i].cedula);
+											end;
+								
+										'D':begin
+											writeln('Ingrese el nuevo telefono');
+											Readln(Dregistrar[i].telefono);
+											end;
+											
+										'E':begin
+											writeln('Ingrese el nuevo email');
+											Readln(Dregistrar[i].email);
+											end;
+											
+										'F':begin
+											writeln('Ingrese la cantidad de dias de su estadia');
+											Readln(Dregistrar[i].TDestadia);
+											end;
+										
+										end;
+										
+										end;
+										if CRegistro = 'B' then CDatos := false;
+										until CDatos = false;
 										
 									end;
 									until MDatos = false;
