@@ -1,4 +1,3 @@
-
 {Sistema de reservacion para el hotel LIDOTEL; realizado por Samuel Marcano, Angel Perez, Abdl Taktak}
 
 program Sistema_de_Reservacionlidotel;
@@ -18,9 +17,10 @@ type
 
 {Se empiezan inicializando variables necesarias para el programa}
 var  menu, reservacion, habitaciones,SDatos,vali,AClientes,CRegistro,CTDatos: string;
-     x1, cod1, x2, cod2, x3, cod3,x4,cod4,x5,cod5,x6,cod6,x7,cod7,x8,cod8, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2,n3: longint;
+     x1, cod1, x2, cod2, x3, cod3,x4,cod4,x5,cod5,x6,cod6,x7,cod7,x8,cod8, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2,n3,n4,n5: longint;
      ECliente: string[10];
-     DCliente, DRegistrar: array of datos;
+     DCliente: array of datos; 
+     DRegistrar: array of datos;
 	 archivo1: text;
 	 archivo: file of datos;
 	 ECedula,CSistema,MDatos,valvali,MClientes,CDatos: boolean;
@@ -29,8 +29,8 @@ var  menu, reservacion, habitaciones,SDatos,vali,AClientes,CRegistro,CTDatos: st
 Procedure RCliente;
 begin
 
-	SetLength(DCliente, (n + n2));
-	SetLength(DRegistrar, (n + n2));
+	SetLength(DCliente,n);
+	SetLength(DRegistrar,n);
 	
 	case TRegistro of
 	1:
@@ -109,7 +109,6 @@ begin
 							writeln;
 							gotoxy(20,15);writeln ('========================');
 							gotoxy(20,16);write ('Email: ');
-							
 							readln (DCliente[i].email);
 							DRegistrar[i].email := DCliente[i].email;
 							writeln;
@@ -390,7 +389,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 200 * (DEstadia - 1);
+										PTotal:= 200 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 200;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -543,7 +543,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 60 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 60;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -695,7 +696,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 120 * (DEstadia - 1);
+										PTotal:= 120 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 120;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -847,7 +849,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 300 * (DEstadia - 1);
+										PTotal:= 300 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 300;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -1058,7 +1061,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 200 * (DEstadia - 1);
+										PTotal:= 200 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 200;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -1246,7 +1250,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 60 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 60;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -1427,7 +1432,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 120 * (DEstadia - 1);
+										PTotal:= 120 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 120;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -1608,7 +1614,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 300 * (DEstadia - 1);
+										PTotal:= 300 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 300;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -1785,7 +1792,7 @@ BEGIN
 								repeat
 								writeln ('Ingrese el numero de personas que desea registrar en la reservacion');
 								readln (vali);
-								if not TryStrToInt(vali, n) then
+								if not TryStrToInt(vali, n3) then
 								  begin
 									WriteLn('Entrada inválida. Solo se permiten números enteros.');
 									valvali:=true;
@@ -1793,6 +1800,7 @@ BEGIN
 								  else 
 								  valvali:=false;
 								 until valvali = false; 
+								 n:= n3;
 								writeln;
 								for i:= 1 to n do
 								begin
@@ -1859,7 +1867,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 200 * (DEstadia - 1);
+										PTotal:= 200 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 200;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -1869,7 +1878,7 @@ BEGIN
 										repeat
 										if MClientes = true then
 										begin
-										for i:= (n + 1) to (n + n2) do
+										for i:= n4 to n do
 										begin
 										RCliente;
 										end;
@@ -2035,7 +2044,7 @@ BEGIN
 										repeat
 										writeln('Ingrese el numero de personas que desea agregar al registro');
 										readln (vali);
-												if not TryStrToInt(vali, n2 ) then
+												if not TryStrToInt(vali, n2) then
 													begin
 														WriteLn('Entrada inválida. Solo se permiten números enteros.');
 														valvali:= true;
@@ -2044,6 +2053,9 @@ BEGIN
 												valvali:=false;
 										until valvali = false;
 										writeln;
+										n4:= n;
+										n5:= n + n2;
+										n:= n5;
 										end;
 										until MClientes = false;
 										for j:= 1 to n do
@@ -2070,7 +2082,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 60 * (DEstadia - 1);
+										PTotal:= 60 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 60;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -2281,7 +2294,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 120 * (DEstadia - 1);
+										PTotal:= 120 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 120;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
@@ -2496,7 +2510,8 @@ BEGIN
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
 										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
 										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										PTotal:= 300 * (DEstadia - 1);
+										PTotal:= 300 * (DCliente[1].TDestadia - 1);
+										if Ptotal = 0 then Ptotal:= 300;
 										writeln;
 										writeln ('///////////////////////////////');
 										writeln ('Presione [enter] para continuar');
