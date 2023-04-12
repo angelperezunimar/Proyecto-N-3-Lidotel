@@ -424,7 +424,7 @@ BEGIN
 										readln();
 										
 										clrscr;
-										writeln ('¿Desea cambiar algun dato del registro?');
+										writeln ('Desea cambiar algun dato del registro?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -433,7 +433,7 @@ BEGIN
 										begin
 										clrscr;
 										CDatos := true;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+										gotoxy(35,1);writeln ('Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
 										writeln ('B-Apellido');
@@ -589,7 +589,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar algun dato del registro?');
+										writeln ('Desea cambiar algun dato del registro?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -599,7 +599,7 @@ BEGIN
 										
 										CDatos := true;
 										clrscr;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+										gotoxy(35,1);writeln ('Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
 										writeln ('B-Apellido');
@@ -754,7 +754,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar algun dato del registro?');
+										writeln ('Desea cambiar algun dato del registro?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -764,7 +764,7 @@ BEGIN
 										
 										CDatos := true;
 										clrscr;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+										gotoxy(35,1);writeln ('Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
 										writeln ('B-Apellido');
@@ -920,7 +920,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar algun dato del registro?');
+										writeln ('Desea cambiar algun dato del registro?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -929,7 +929,7 @@ BEGIN
 										begin
 										clrscr;
 										CDatos := true;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+										gotoxy(35,1);writeln ('Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
 										writeln ('B-Apellido');
@@ -1131,7 +1131,7 @@ BEGIN
 										clrscr;
 										repeat
 										clrscr;
-										gotoxy(30,1);writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
 										gotoxy(20,2);writeln ('========================================================================================');
 										gotoxy(55,5);writeln('A-Si');
 										gotoxy(50,6);writeln ('------------------');
@@ -1180,16 +1180,16 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln ('Desea cambiar alguno de los datos del registro de este cliente?');
 										writeln;
-										writeln('A-Si');
+										writeln ('A-Si');
 										writeln ('B-No');
 										readln(CRegistro);
 										if CRegistro = 'A' then
 										begin
 										clrscr;
 										CDatos := true;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+										gotoxy(35,1);writeln ('Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
 										writeln ('B-Apellido');
@@ -1332,9 +1332,11 @@ BEGIN
 										clrscr;
 										repeat
 										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
+										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(20,2);writeln ('========================================================================================');
+										gotoxy(55,5);writeln('A-Si');
+										gotoxy(50,6);writeln ('------------------');
+										gotoxy(55,7);writeln('B-No');
 										readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
@@ -1376,7 +1378,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln ('Desea cambiar alguno de los datos del registro de este cliente?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -1385,7 +1387,7 @@ BEGIN
 										begin
 										clrscr;
 										CDatos := true;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+										gotoxy(35,1);writeln ('Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
 										writeln ('B-Apellido');
@@ -1525,9 +1527,11 @@ BEGIN
 										clrscr;
 										repeat
 										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
+										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(20,2);writeln ('========================================================================================');
+										gotoxy(55,5);writeln('A-Si');
+										gotoxy(50,6);writeln ('------------------');
+										gotoxy(55,7);writeln('B-No');
 										readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
@@ -1569,7 +1573,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln ('Desea cambiar alguno de los datos del registro de este cliente?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -1719,9 +1723,11 @@ BEGIN
 										clrscr;
 										repeat
 										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
+										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(20,2);writeln ('========================================================================================');
+										gotoxy(55,5);writeln('A-Si');
+										gotoxy(50,6);writeln ('------------------');
+										gotoxy(55,7);writeln('B-No');
 										readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
@@ -1763,7 +1769,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln ('Desea cambiar alguno de los datos del registro de este cliente?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -1914,9 +1920,9 @@ BEGIN
 								end;
 								clrscr;
 								repeat
-								gotoxy(20,21);writeln ('===========================');
+								gotoxy(20,21);writeln ('==============================');
 								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
-								gotoxy(20,23);writeln ('===========================');
+								
 								readln(vali);
 								if not TryStrToInt(vali, DCliente[1].TDestadia) then
 								  begin
@@ -1998,13 +2004,16 @@ BEGIN
 										end;
 										repeat
 										clrscr;
-										gotoxy(25,1);writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
+										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(20,2);writeln ('========================================================================================');
+										gotoxy(55,5);writeln('A-Si');
+										gotoxy(50,6);writeln ('------------------');
+										gotoxy(55,7);writeln('B-No');
 										readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
+										clrscr;
 										repeat
 										MDatos := true;
 										clrscr;
@@ -2040,7 +2049,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln ('Desea cambiar alguno de los datos del registro de este cliente?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -2153,7 +2162,7 @@ BEGIN
 										until CDatos = false;
 										end;
 										until MDatos = false;
-										writeln('¿Desea agregar a mas personas dentro del registro?');
+										writeln('Desea agregar a mas personas dentro del registro?');
 										writeln('A-Si');
 										writeln('B-No');
 										readln(AClientes);
@@ -2226,13 +2235,16 @@ BEGIN
 										end;
 										repeat
 										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
+										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(20,2);writeln ('========================================================================================');
+										gotoxy(55,5);writeln('A-Si');
+										gotoxy(50,6);writeln ('------------------');
+										gotoxy(55,7);writeln('B-No');
 										readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
+										clrscr;
 										repeat
 										MDatos := true;
 										clrscr;
@@ -2268,7 +2280,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln ('Desea cambiar alguno de los datos del registro de este cliente?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -2382,7 +2394,7 @@ BEGIN
 										clrscr;
 										end;
 										until MDatos = false;
-										writeln('¿Desea agregar a mas personas dentro del registro?');
+										writeln('Desea agregar a mas personas dentro del registro?');
 										writeln('A-Si');
 										writeln('B-No');
 										readln(AClientes);
@@ -2450,13 +2462,16 @@ BEGIN
 										end;
 										repeat
 										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
+										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(20,2);writeln ('========================================================================================');
+										gotoxy(55,5);writeln('A-Si');
+										gotoxy(50,6);writeln ('------------------');
+										gotoxy(55,7);writeln('B-No');
 										readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
+										clrscr;
 										repeat
 										MDatos := true;
 										clrscr;
@@ -2492,7 +2507,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln ('Desea cambiar alguno de los datos del registro de este cliente?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -2502,7 +2517,7 @@ BEGIN
 										clrscr;
 										MDatos := true;
 										CDatos := true;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+										gotoxy(35,1);writeln ('Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
 										writeln ('B-Apellido');
@@ -2604,7 +2619,7 @@ BEGIN
 										until CDatos = false;
 										end;
 										until MDatos = false;
-										writeln('¿Desea agregar a mas personas dentro del registro?');
+										writeln('Desea agregar a mas personas dentro del registro?');
 										writeln('A-Si');
 										writeln('B-No');
 										readln(AClientes);
@@ -2678,13 +2693,16 @@ BEGIN
 										end;
 										repeat
 										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
-										writeln('A-Si');
-										writeln('B-No');
+										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(20,2);writeln ('========================================================================================');
+										gotoxy(55,5);writeln('A-Si');
+										gotoxy(50,6);writeln ('------------------');
+										gotoxy(55,7);writeln('B-No');
 										readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
+										clrscr;
 										repeat
 										MDatos := true;
 										clrscr;
@@ -2722,7 +2740,7 @@ BEGIN
 										writeln ('El monto total por la estadia es de: ', PTotal,'$');
 										readln();
 										clrscr;
-										writeln ('¿Desea cambiar alguno de los datos del registro de este cliente?');
+										writeln ('Desea cambiar alguno de los datos del registro de este cliente?');
 										writeln;
 										writeln('A-Si');
 										writeln ('B-No');
@@ -2732,7 +2750,7 @@ BEGIN
 										clrscr;
 										MDatos := true;
 										CDatos := true;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+										gotoxy(35,1);writeln ('Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
 										writeln ('B-Apellido');
@@ -2836,7 +2854,7 @@ BEGIN
 										
 									end;
 									until MDatos = false;
-									writeln('¿Desea agregar a mas personas dentro del registro?');
+									writeln('Desea agregar a mas personas dentro del registro?');
 										writeln('A-Si');
 										writeln('B-No');
 										readln(AClientes);
