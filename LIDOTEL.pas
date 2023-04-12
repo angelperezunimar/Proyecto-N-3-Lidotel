@@ -347,9 +347,9 @@ BEGIN
 								DRegistrar[i].TDestadia := DCliente[i].TDestadia;
 								clrscr;
 								writeln;
-								writeln ('--------------------------------');
-								writeln ('Seleccione el tipo de habitacion');
-								writeln ('--------------------------------');
+								gotoxy(25,1);writeln ('--------------------------------');
+								gotoxy(25,2);writeln ('Seleccione el tipo de habitacion');
+								gotoxy(25,3);writeln ('--------------------------------');
 								writeln;
 								writeln ('');
 								writeln('a-FAMILY ROOM');
@@ -379,16 +379,22 @@ BEGIN
 										gotoxy(30,2);writeln ('Usted ha seleccionado la FAMILY ROOM - 200$ la noche');
 										gotoxy(30,3);writeln ('====================================================');
 										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln ('Calida y confortable habitacion decorada con un estilo vanguardista, 100% libre de humo,cama Lidotel Royal King, con reloj despertador TV 32” HD Plasma con cable, banyo con  ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio, una habitacion separada con 2 camas full, banyo con ducha.');							
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('----------------------------------------------------------------------------------------');
+										writeln ('Calida y confortable habitacion decorada con un estilo vanguardista, ');							
+										writeln ('100% libre de humo,cama Lidotel Royal King, con reloj despertador ');
+										writeln ('TV 32” HD Plasma con cable, banyo con  ducha, cafetera electrica, ');
+										writeln ('nevera ejecutiva, caja electronica de seguridad y secador de cabello, ');
+										writeln ('armario adicional amplio, una habitacion separada con 2 camas full, banyo con ducha.');
+										writeln ('----------------------------------------------------------------------------------------');
 										writeln;
 										writeln ('Incluye: ');
 										writeln ('///////');
 										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('----------------------------------------------------------------------------------------');
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI),');
+										writeln ('Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, ');
+										writeln ('sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+										writeln ('----------------------------------------------------------------------------------------');
 										PTotal:= 200 * (DCliente[1].TDestadia - 1);
 										if Ptotal = 0 then Ptotal:= 200;
 										writeln;
@@ -425,7 +431,7 @@ BEGIN
 										readln(CRegistro);
 										if CRegistro = 'A' then
 										begin
-										
+										clrscr;
 										CDatos := true;
 										writeln ('¿Que dato desea cambiar?');
 										writeln;
@@ -533,16 +539,22 @@ BEGIN
 										gotoxy(30,2);writeln ('Usted ha seleccionado la habitacion SENCILLA - 60$ la noche.');
 										gotoxy(30,3);writeln ('============================================================');
 										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln (' Amplia y confortable habitación decorada con un estilo vanguardista, cama Lidotel Royal King con sábanas de algodon egipcio, soporte para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello.');
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('-----------------------------------------------------------------------');
+										writeln (' Amplia y confortable habitación decorada con un estilo vanguardista');
+										writeln (' cama Lidotel Royal King con sábanas de algodon egipcio, soporte');
+										writeln (' para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo ');
+										writeln (' con ducha, cafetera electrica, nevera ejecutiva, caja electronica ');
+										writeln (' de seguridad y secador de cabello.');
+										writeln ('-----------------------------------------------------------------------');
 										writeln;
 										writeln ('Incluye: ');
 										writeln ('///////');
 										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('-----------------------------------------------------------------------------------------');
+										writeln ('Desayuno Buffet en Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), '); 
+										writeln ('acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, '); 
+										writeln ('acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos.'); 
+										writeln ('-----------------------------------------------------------------------------------------');
 										PTotal:= 60 * (DCliente[1].TDestadia - 1);
 										if Ptotal = 0 then Ptotal:= 60;
 										writeln;
@@ -580,6 +592,7 @@ BEGIN
 										begin
 										
 										CDatos := true;
+										clrscr;
 										writeln ('¿Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
@@ -686,16 +699,21 @@ BEGIN
 										gotoxy(30,2);writeln ('Usted ha seleccionado la habitacion DOBLE - 120$ la noche');
 										gotoxy(30,3);writeln ('=========================================================');
 										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln ('Amplia y confortable habitación decorada con un estilo vanguardista, Dos Camas Lidotel Full con sabanas de algodon egipcio, soporte para iPod con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad secador de cabello.');
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('------------------------------------------------------------------------------------------');
+										writeln ('Amplia y confortable habitación decorada con un estilo vanguardista,');
+										writeln ('Dos Camas Lidotel Full con sabanas de algodon egipcio, soporte para iPod ');
+										writeln ('con reloj despertador, TV 32” HD Plasma con cable, banyo con ducha,');
+										writeln ('cafetera electrica, nevera ejecutiva, caja electronica de seguridad secador de cabello.');
+										writeln ('------------------------------------------------------------------------------------------');
 										writeln;
 										writeln ('Incluye: ');
 										writeln ('///////');
 										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina, acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('-------------------------------------------------------------------------------------------');
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), ');
+										writeln ('acceso a las instalaciones del Business Center, uso de nuestra exclusiva piscina,');
+										writeln ('acceso a nuestro moderno gimnasio y Kit de vanidades. Ninyos de 0 a 2 años sin recargos');
+										writeln ('-------------------------------------------------------------------------------------------');
 										PTotal:= 120 * (DCliente[1].TDestadia - 1);
 										if Ptotal = 0 then Ptotal:= 120;
 										writeln;
@@ -733,6 +751,7 @@ BEGIN
 										begin
 										
 										CDatos := true;
+										clrscr;
 										writeln ('¿Que dato desea cambiar?');
 										writeln;
 										writeln ('A-Nombre');
@@ -839,16 +858,22 @@ BEGIN
 										gotoxy(30,2);writeln ('Usted ha seleccionado la SUITE - 300$ la noche');
 										gotoxy(30,3);writeln ('==============================================');
 										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln('Cálida y confortable habitación decorada con un estilo vanguardista, 100% libre de humo, Cama Lidotel Royal King, con reloj despertador, TV 32” HD Plasma con cable, 2 banyos con ducha, cafetera electrica, nevera ejecutiva, caja electronica de seguridad y secador de cabello, armario adicional amplio y area separada con 2 sofa-cama individuales.');
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('-------------------------------------------------------------------------------------');
+										writeln ('Cálida y confortable habitación decorada con un estilo vanguardista,');
+										writeln ('100% libre de humo, Cama Lidotel Royal King, con reloj despertador, ');
+										writeln ('TV 32” HD Plasma con cable, 2 banyos con ducha, cafetera electrica,');
+										writeln ('nevera ejecutiva, caja electronica de seguridad y secador de cabello,');
+										writeln ('armario adicional amplio y area separada con 2 sofa-cama individuales.');
+										writeln ('-------------------------------------------------------------------------------------');
 										writeln;
 										writeln ('Incluye: ');
 										writeln ('///////');
 										writeln;
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
-										writeln('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI), Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio, sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
-										writeln ('------------------------------------------------------------------------------------------------------------------------');
+										writeln ('-------------------------------------------------------------------------------------');
+										writeln ('Desayuno Buffet en el Restaurant Le Nouveau, acceso inalambrico a Internet (WIFI),');
+										writeln ('Business Center, uso de nuestra exclusiva piscina, acceso a nuestro gimnasio,');
+										writeln ('sillas y toldos en la playa, kit de vanidades y ninyos de 0 a 2 años sin recargos.');
+										writeln ('-------------------------------------------------------------------------------------');
 										PTotal:= 300 * (DCliente[1].TDestadia - 1);
 										if Ptotal = 0 then Ptotal:= 300;
 										writeln;
@@ -991,10 +1016,15 @@ BEGIN
 							end; 
 						'b':
 							begin
+							clrscr;
 								TRegistro:= 2;
 								i:= 2;
 								n:= 2;
-								writeln ('usted ha seleccionado la reservacion de tipo acompañado');
+								gotoxy(30,1);writeln ('/=====================================================/');
+								gotoxy(30,2);writeln ('Usted ha seleccionado la reservacion de tipo acompañado');
+								gotoxy(30,3);writeln ('/=====================================================/');
+								delay(2000);
+								read;
 								writeln;
 								for i:= 1 to n do
 								begin
@@ -1019,9 +1049,9 @@ BEGIN
 								end;
 								clrscr;
 								writeln;
-								writeln ('--------------------------------');
-								writeln ('Seleccione el tipo de habitacion');
-								writeln ('--------------------------------');
+								gotoxy(25,1);writeln ('--------------------------------');
+								gotoxy(25,2);writeln ('Seleccione el tipo de habitacion');
+								gotoxy(25,3);writeln ('--------------------------------');
 								writeln;
 								writeln ('');
 								writeln('a-FAMILY ROOM');
@@ -1786,11 +1816,16 @@ BEGIN
 							end;
 						'c':
 							begin
+							clrscr;
 								TRegistro:= 3;
-								writeln ('usted ha seleccionado la reservacion de tipo grupo/familia');
+								gotoxy(25,1);writeln ('==========================================================');
+								gotoxy(25,2);writeln ('Usted ha seleccionado la reservacion de tipo grupo/familia');
+								gotoxy(25,3);writeln ('==========================================================');
+								delay(2000);
+								read;
 								writeln;
 								repeat
-								writeln ('Ingrese el numero de personas que desea registrar en la reservacion');
+								write ('Ingrese el numero de personas que desea registrar en la reservacion:');
 								readln (vali);
 								if not TryStrToInt(vali, n3) then
 								  begin
@@ -1808,8 +1843,9 @@ BEGIN
 								end;
 								clrscr;
 								repeat
-								gotoxy(20,21);writeln ('========================');
+								gotoxy(20,21);writeln ('===========================');
 								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
+								gotoxy(20,23);writeln ('===========================');
 								readln(vali);
 								if not TryStrToInt(vali, DCliente[1].TDestadia) then
 								  begin
@@ -1825,9 +1861,9 @@ BEGIN
 								end;
 								clrscr;
 								writeln;
-								writeln ('--------------------------------');
-								writeln ('Seleccione el tipo de habitacion');
-								writeln ('--------------------------------');
+								gotoxy(25,1);writeln ('--------------------------------');
+								gotoxy(25,2);writeln ('Seleccione el tipo de habitacion');
+								gotoxy(25,3);writeln ('--------------------------------');
 								writeln;
 								writeln ('');
 								writeln('a-FAMILY ROOM');
@@ -1885,7 +1921,7 @@ BEGIN
 										end;
 										repeat
 										clrscr;
-										writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
+										gotoxy(25,1);writeln('¿Desea ver los datos de reservacion de alguno de los clientes?');
 										writeln('A-Si');
 										writeln('B-No');
 										readln(SDatos);
