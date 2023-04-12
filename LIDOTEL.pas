@@ -17,7 +17,7 @@ type
 
 {Se empiezan inicializando variables necesarias para el programa}
 var  menu, reservacion, habitaciones,SDatos,vali,AClientes,CRegistro,CTDatos: string;
-     x1, cod1, x2, cod2, x3, cod3,x4,cod4,x5,cod5,x6,cod6,x7,cod7,x8,cod8, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2,n3,n4,n5: longint;
+     x1, cod1, x2, cod2, x3, cod3,x4,cod4,x5,cod5,x6,cod6,x7,cod7,x8,cod8,cell, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2,n3,n4,n5,h: longint;
      ECliente: string[10];
      DCliente: array of datos; 
      DRegistrar: array of datos;
@@ -102,9 +102,17 @@ begin
 							until cod6 > 0;
 							DRegistrar[i].apellido := DCliente[i].apellido;
 							writeln;
+							repeat
 							gotoxy(20,12);writeln ('========================');
 							gotoxy(20,13);write ('Cedula de identidad: ');
-							readln (DCliente[i].cedula);
+							readln(DCliente[i].cedula);
+							if not TryStrToInt(DCliente[i].cedula,cell) then
+							begin
+								WriteLn('Entrada inválida. Solo se permiten números enteros.');
+								valvali:= true;
+								  end
+							else valvali:=false;	  
+							until valvali = false;
 							DRegistrar[i].cedula := DCliente[i].cedula;
 							writeln;
 							gotoxy(20,15);writeln ('========================');
@@ -482,10 +490,19 @@ BEGIN
 													end;
 												until cod8>0;
 											end;
+											
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -649,9 +666,17 @@ BEGIN
 												until cod8>0;
 											end;
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -814,9 +839,17 @@ BEGIN
 												until cod8>0;
 											end;
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -978,10 +1011,19 @@ BEGIN
 													end;
 												until cod8>0;
 											end;
+											
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -1239,9 +1281,17 @@ BEGIN
 												until cod8>0;
 											end;
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -1436,10 +1486,19 @@ BEGIN
 													end;
 												until cod8>0;
 											end;
+											
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -1631,10 +1690,19 @@ BEGIN
 													end;
 												until cod8>0;
 											end;
+											
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -1827,10 +1895,19 @@ BEGIN
 													end;
 												until cod8>0;
 											end;
+											
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -1922,7 +1999,6 @@ BEGIN
 								repeat
 								gotoxy(20,21);writeln ('==============================');
 								gotoxy(20,22);write ('Cantidad de dias de su estadia: ');
-								
 								readln(vali);
 								if not TryStrToInt(vali, DCliente[1].TDestadia) then
 								  begin
@@ -1995,13 +2071,6 @@ BEGIN
 										readln;
 										clrscr;
 										repeat
-										if MClientes = true then
-										begin
-										for i:= n4 to n do
-										begin
-										RCliente;
-										end;
-										end;
 										repeat
 										clrscr;
 										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
@@ -2020,8 +2089,8 @@ BEGIN
 										repeat
 											writeln('Ingrese el numero del cliente que desee visualizar los datos');
 											writeln;
-											readln (vali);
-												if not TryStrToInt(vali, i ) then
+											readln(vali);
+												if not TryStrToInt(vali, i) then
 													begin
 													WriteLn('Entrada inválida. Solo se permiten números enteros.');
 													valvali:= true;
@@ -2108,10 +2177,19 @@ BEGIN
 													end;
 												until cod8>0;
 											end;
+											
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -2185,6 +2263,13 @@ BEGIN
 										n4:= n;
 										n5:= n + n2;
 										n:= n5;
+										if MClientes = true then
+										begin
+										for i:= n4 to n do
+										begin
+										RCliente;
+										end;
+										end;
 										end;
 										until MClientes = false;
 										for j:= 1 to n do
@@ -2226,13 +2311,6 @@ BEGIN
 										readln;
 										clrscr;
 										repeat
-										if MClientes = true then
-										begin
-										for i:= (n + 1) to (n + n2) do
-										begin
-										RCliente;
-										end;
-										end;
 										repeat
 										clrscr;
 										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
@@ -2339,10 +2417,19 @@ BEGIN
 													end;
 												until cod8>0;
 											end;
+											
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -2414,6 +2501,16 @@ BEGIN
 												else 
 												valvali:=false;
 										until valvali = false;
+										n4:= n;
+										n5:= n + n2;
+										n:= n5;
+										if MClientes = true then
+										begin
+										for i:= n4 + 1 to n do
+										begin
+										RCliente;
+										end;
+										end;
 										end;
 										until MClientes = false;
 										for j:= 1 to n + n2 do
@@ -2453,13 +2550,6 @@ BEGIN
 										readln;
 										clrscr;
 										repeat
-										if MClientes = true then
-										begin
-										for i:= (n + 1) to (n + n2) do
-										begin
-										RCliente;
-										end;
-										end;
 										repeat
 										clrscr;
 										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
@@ -2567,9 +2657,17 @@ BEGIN
 												until cod8>0;
 											end;
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -2643,6 +2741,16 @@ BEGIN
 												
 										
 										until valvali = false;
+										n4:= n;
+										n5:= n + n2;
+										n:= n5;
+										if MClientes = true then
+										begin
+										for i:= n4 + 1 to n do
+										begin
+										RCliente;
+										end;
+										end;
 										end;
 										
 										until MClientes = false;
@@ -2684,13 +2792,6 @@ BEGIN
 										readln;
 										clrscr;
 										repeat
-										if MClientes = true then
-										begin
-										for i:= (n + 1) to (n + n2) do
-										begin
-										RCliente;
-										end;
-										end;
 										repeat
 										clrscr;
 										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
@@ -2800,9 +2901,17 @@ BEGIN
 												until cod8>0;
 											end;
 										'C':begin
-										clrscr;
+											repeat
+											clrscr;
 											write('Ingrese el nuevo cedula:');
 											Readln(Dregistrar[i].cedula);
+											if not TryStrToInt(DCliente[i].cedula,cell) then
+											begin
+											WriteLn('Entrada inválida. Solo se permiten números enteros.');
+											valvali:= true;
+											end
+											else valvali:=false;	  
+											until valvali = false;
 											end;
 								
 										'D':begin
@@ -2874,6 +2983,16 @@ BEGIN
 												else 
 												valvali:=false;
 										until valvali = false;
+										n4:= n;
+										n5:= n + n2;
+										n:= n5;
+										if MClientes = true then
+										begin
+										for i:= n4 + 1 to n do
+										begin
+										RCliente;
+										end;
+										end;
 										end;
 										until MClientes = false;
 									for j:= 1 to n do
@@ -2927,4 +3046,3 @@ BEGIN
 	
 	until CSistema = false;
 END.
-
