@@ -16,14 +16,14 @@ type
 		end;
 
 {Se empiezan inicializando variables necesarias para el programa}
-var  menu, reservacion, habitaciones,SDatos,vali,AClientes,CRegistro,CTDatos: string;
-     x1, cod1, x2, cod2, x3, cod3,x4,cod4,x5,cod5,x6,cod6,x7,cod7,x8,cod8,cell, Tdatos, i, TRegistro, PTotal, DEstadia,n,j,n2,n3,n4,n5,h: longint;
+var  menu, reservacion, habitaciones, SDatos, vali, AClientes, CRegistro, CTDatos: string;
+     x1, cod1, x2, cod2, x3, cod3, x4, cod4 ,x5, cod5, x6, cod6, x7, cod7, x8, cod8, cell, Tdatos, i, TRegistro, PTotal, DEstadia, n, j, n2, n3, n4, n5, h: longint;
      ECliente: string[10];
      DCliente: array of datos; 
      DRegistrar: array of datos;
 	 archivo1: text;
 	 archivo: file of datos;
-	 ECedula,CSistema,MDatos,valvali,MClientes,CDatos: boolean;
+	 ECedula, CSistema, MDatos, valvali, MClientes, CDatos: boolean;
 	
 	//Procedimiento para el registro del cliente
 Procedure RCliente;
@@ -2365,17 +2365,17 @@ BEGIN
 										readln(CRegistro);
 										if CRegistro = 'A' then
 										begin
-										clrscr;
-										MDatos := true;
-										CDatos := true;
-										gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
-										writeln;
-										writeln ('A-Nombre');
-										writeln ('B-Apellido');
-										writeln ('C-Cedula');
-										writeln ('D-Telefono');
-										writeln ('E-Email');
-										writeln ('F-Dias de Estadia');
+											clrscr;
+											MDatos := true;
+											CDatos := true;
+											gotoxy(35,1);writeln ('¿Que dato desea cambiar?');
+											writeln;
+											writeln ('A-Nombre');
+											writeln ('B-Apellido');
+											writeln ('C-Cedula');
+											writeln ('D-Telefono');
+											writeln ('E-Email');
+											writeln ('F-Dias de Estadia');
 										repeat
 											begin
 												repeat
@@ -2420,15 +2420,15 @@ BEGIN
 											
 										'C':begin
 											repeat
-											clrscr;
-											write('Ingrese el nuevo cedula:');
-											Readln(Dregistrar[i].cedula);
-											if not TryStrToInt(DCliente[i].cedula,cell) then
-											begin
-											WriteLn('Entrada inválida. Solo se permiten números enteros.');
-											valvali:= true;
-											end
-											else valvali:=false;	  
+												clrscr;
+												write('Ingrese el nuevo cedula:');
+												Readln(Dregistrar[i].cedula);
+													if not TryStrToInt(DCliente[i].cedula,cell) then
+														begin
+															WriteLn('Entrada inválida. Solo se permiten números enteros.');
+															valvali:= true;
+														end
+												else valvali:=false;	  
 											until valvali = false;
 											end;
 								
@@ -2488,35 +2488,35 @@ BEGIN
 										if AClientes = 'B' then MClientes := False;
 										if AClientes = 'A' then 
 										begin
-										MClientes:= true;
+											MClientes:= true;
 										repeat
-										writeln('Ingrese el numero de personas que desea agregar al registro');
-										writeln;
-										readln (vali);
-												if not TryStrToInt(vali, n2 ) then
-													begin
-														WriteLn('Entrada inválida. Solo se permiten números enteros.');
-														valvali:= true;
-													end
-												else 
-												valvali:=false;
+											writeln('Ingrese el numero de personas que desea agregar al registro');
+											writeln;
+											readln (vali);
+													if not TryStrToInt(vali, n2 ) then
+														begin
+															WriteLn('Entrada inválida. Solo se permiten números enteros.');
+															valvali:= true;
+														end
+													else 
+													valvali:=false;
 										until valvali = false;
 										n4:= n;
 										n5:= n + n2;
 										n:= n5;
 										if MClientes = true then
-										begin
+									begin
 										for i:= n4 + 1 to n do
-										begin
-										RCliente;
+											begin
+												RCliente;
+											end;
 										end;
-										end;
-										end;
-										until MClientes = false;
+									end;
+									until MClientes = false;
 										for j:= 1 to n + n2 do
-										begin
-										GRegistro;
-										end;
+											begin
+												GRegistro;
+											end;
 									end;
 								
 								'c':
@@ -2603,18 +2603,18 @@ BEGIN
 										writeln ('B-No');
 										readln(CRegistro);
 										if CRegistro = 'A' then
-										begin
-										clrscr;
-										MDatos := true;
-										CDatos := true;
-										gotoxy(35,1);writeln ('Que dato desea cambiar?');
-										writeln;
-										writeln ('A-Nombre');
-										writeln ('B-Apellido');
-										writeln ('C-Cedula');
-										writeln ('D-Telefono');
-										writeln ('E-Email');
-										writeln ('F-Dias de Estadia');
+											begin
+												clrscr;
+												MDatos := true;
+												CDatos := true;
+												gotoxy(35,1);writeln ('Que dato desea cambiar?');
+												writeln;
+												writeln ('A-Nombre');
+												writeln ('B-Apellido');
+												writeln ('C-Cedula');
+												writeln ('D-Telefono');
+												writeln ('E-Email');
+												writeln ('F-Dias de Estadia');
 										repeat
 											begin
 												repeat
@@ -2657,17 +2657,17 @@ BEGIN
 												until cod8>0;
 											end;
 										'C':begin
-											repeat
-											clrscr;
-											write('Ingrese el nuevo cedula:');
-											Readln(Dregistrar[i].cedula);
-											if not TryStrToInt(DCliente[i].cedula,cell) then
-											begin
-											WriteLn('Entrada inválida. Solo se permiten números enteros.');
-											valvali:= true;
-											end
-											else valvali:=false;	  
-											until valvali = false;
+												repeat
+													clrscr;
+													write('Ingrese el nuevo cedula:');
+													Readln(Dregistrar[i].cedula);
+														if not TryStrToInt(DCliente[i].cedula,cell) then
+															begin
+																WriteLn('Entrada inválida. Solo se permiten números enteros.');
+																valvali:= true;
+															end
+														else valvali:=false;	  
+												until valvali = false;
 											end;
 								
 										'D':begin
@@ -2724,13 +2724,13 @@ BEGIN
 										if AClientes = 'B' then MClientes := False;
 										if AClientes = 'A' then 
 										begin
-										MClientes:= true;
-										MDatos := true;
-										CDatos := true;
+											MClientes:= true;
+											MDatos := true;
+											CDatos := true;
 										repeat
-										writeln('Ingrese el numero de personas que desea agregar al registro');
-										writeln;
-										readln (vali);
+											writeln('Ingrese el numero de personas que desea agregar al registro');
+											writeln;
+											readln (vali);
 												if not TryStrToInt(vali, n2 ) then
 													begin
 														WriteLn('Entrada inválida. Solo se permiten números enteros.');
@@ -2746,18 +2746,18 @@ BEGIN
 										n:= n5;
 										if MClientes = true then
 										begin
-										for i:= n4 + 1 to n do
-										begin
-										RCliente;
-										end;
-										end;
+											for i:= n4 + 1 to n do
+												begin
+													RCliente;
+												end;
+											end;
 										end;
 										
 										until MClientes = false;
-										for j:= 1 to n + n2 do
-										begin
-										GRegistro;
-										end;
+											for j:= 1 to n + n2 do
+												begin
+													GRegistro;
+												end;
 									end;
 								
 								'd':
@@ -2785,39 +2785,39 @@ BEGIN
 										writeln ('-------------------------------------------------------------------------------------');
 										PTotal:= 300 * (DCliente[1].TDestadia - 1);
 										if Ptotal = 0 then Ptotal:= 300;
-										writeln;
-										writeln ('///////////////////////////////');
-										writeln ('Presione [enter] para continuar');
-										writeln ('///////////////////////////////');
-										readln;
-										clrscr;
+											writeln;
+											writeln ('///////////////////////////////');
+											writeln ('Presione [enter] para continuar');
+											writeln ('///////////////////////////////');
+											readln;
+											clrscr;
 										repeat
 										repeat
-										clrscr;
-										gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
-										gotoxy(20,2);writeln ('========================================================================================');
-										gotoxy(55,5);writeln('A-Si');
-										gotoxy(50,6);writeln ('------------------');
-										gotoxy(55,7);writeln('B-No');
-										readln(SDatos);
+											clrscr;
+											gotoxy(30,1);writeln('Desea ver los datos de reservacion de alguno de los clientes?');
+											gotoxy(20,2);writeln ('========================================================================================');
+											gotoxy(55,5);writeln('A-Si');
+											gotoxy(50,6);writeln ('------------------');
+											gotoxy(55,7);writeln('B-No');
+											readln(SDatos);
 										if SDatos = 'B' then MDatos := False;
 										if SDatos = 'A' then 
 										begin
 										clrscr;
 										repeat
-										MDatos := true;
-										clrscr;
+											MDatos := true;
+											clrscr;
 										repeat
-										writeln('Ingrese el numero del cliente que desee visualizar los datos');
-										writeln;
-										readln (vali);
-												if not TryStrToInt(vali, i ) then
-													begin
-														WriteLn('Entrada inválida. Solo se permiten números enteros.');
-														valvali:= true;
-													end
-												else 
-												valvali:=false;
+											writeln('Ingrese el numero del cliente que desee visualizar los datos');
+											writeln;
+											readln (vali);
+													if not TryStrToInt(vali, i ) then
+														begin
+															WriteLn('Entrada inválida. Solo se permiten números enteros.');
+															valvali:= true;
+														end
+													else 
+													valvali:=false;
 										until valvali = false;
 										
 										
@@ -2847,18 +2847,18 @@ BEGIN
 										writeln ('B-No');
 										readln(CRegistro);
 										if CRegistro = 'A' then
-										begin
-										clrscr;
-										MDatos := true;
-										CDatos := true;
-										gotoxy(35,1);writeln ('Que dato desea cambiar?');
-										writeln;
-										writeln ('A-Nombre');
-										writeln ('B-Apellido');
-										writeln ('C-Cedula');
-										writeln ('D-Telefono');
-										writeln ('E-Email');
-										writeln ('F-Dias de Estadia');
+												begin
+													clrscr;
+													MDatos := true;
+													CDatos := true;
+													gotoxy(35,1);writeln ('Que dato desea cambiar?');
+													writeln;
+													writeln ('A-Nombre');
+													writeln ('B-Apellido');
+													writeln ('C-Cedula');
+													writeln ('D-Telefono');
+													writeln ('E-Email');
+													writeln ('F-Dias de Estadia');
 										repeat
 											begin
 												repeat
@@ -2901,17 +2901,17 @@ BEGIN
 												until cod8>0;
 											end;
 										'C':begin
-											repeat
-											clrscr;
-											write('Ingrese el nuevo cedula:');
-											Readln(Dregistrar[i].cedula);
-											if not TryStrToInt(DCliente[i].cedula,cell) then
-											begin
-											WriteLn('Entrada inválida. Solo se permiten números enteros.');
-											valvali:= true;
-											end
-											else valvali:=false;	  
-											until valvali = false;
+												repeat
+													clrscr;
+													write('Ingrese el nuevo cedula:');
+													Readln(Dregistrar[i].cedula);
+													if not TryStrToInt(DCliente[i].cedula,cell) then
+														begin
+															WriteLn('Entrada inválida. Solo se permiten números enteros.');
+															valvali:= true;
+														end
+													else valvali:=false;	  
+												until valvali = false;
 											end;
 								
 										'D':begin
@@ -2932,9 +2932,9 @@ BEGIN
 											end;
 											
 										'E':begin
-											clrscr;
-											write('Ingrese el nuevo email:');
-											Readln(Dregistrar[i].email);
+												clrscr;
+												write('Ingrese el nuevo email:');
+												Readln(Dregistrar[i].email);
 											end;
 											
 										'F':begin
@@ -2969,36 +2969,36 @@ BEGIN
 										readln(AClientes);
 										if AClientes = 'B' then MClientes := False;
 										if AClientes = 'A' then 
-										begin
-										MClientes:= true;
+											begin
+												MClientes:= true;
 										repeat
-										writeln('Ingrese el numero de personas que desea agregar al registro');
-										writeln;
-										readln (vali);
-												if not TryStrToInt(vali, n2 ) then
-													begin
-														WriteLn('Entrada inválida. Solo se permiten números enteros.');
-														valvali:= true;
-													end
-												else 
-												valvali:=false;
+											writeln('Ingrese el numero de personas que desea agregar al registro');
+											writeln;
+											readln (vali);
+													if not TryStrToInt(vali, n2 ) then
+														begin
+															WriteLn('Entrada inválida. Solo se permiten números enteros.');
+															valvali:= true;
+														end
+													else 
+													valvali:=false;
 										until valvali = false;
 										n4:= n;
 										n5:= n + n2;
 										n:= n5;
 										if MClientes = true then
-										begin
-										for i:= n4 + 1 to n do
-										begin
-										RCliente;
-										end;
-										end;
-										end;
-										until MClientes = false;
-									for j:= 1 to n do
-										begin
-										GRegistro;
-										end;
+											begin
+												for i:= n4 + 1 to n do
+													begin
+														RCliente;
+													end;
+												end;
+											end;
+											until MClientes = false;
+												for j:= 1 to n do
+											begin
+												GRegistro;
+											end;
 										end;
 								end; // end del case de las habitaciones
 							end;// end de la primera opcion del case de los tipos de reservaciones
